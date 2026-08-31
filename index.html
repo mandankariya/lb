@@ -624,7 +624,6 @@
 
     function renderItemCard(item, tint) {
         const priceLabel = `₹${item.price}`;
-        const orderText = `Hi, I'd like to order: ${item.name} (${priceLabel})`;
         const unavailable = item.available === false;
         return `
             <div class="menu-item bg-white rounded-2xl border shadow-sm hover:shadow-md transition-shadow overflow-hidden flex${unavailable ? ' is-unavailable' : ''}" style="border-color: rgba(0,0,0,0.06);">
@@ -637,8 +636,7 @@
                     <p class="text-xs leading-relaxed flex-1 mb-1" style="color: var(--color-charcoal-soft);">${item.desc}</p>
                     <div class="flex flex-wrap items-center gap-1.5 mb-2">${spiceIcons(item.spicy)}${(item.badges || []).map(badgePill).join('')}${unavailable ? badgePill('Currently unavailable') : ''}</div>
                     <div class="order-actions flex gap-2">
-                        <a href="${whatsappLink(orderText)}" target="_blank" class="flex-1 flex items-center justify-center gap-1.5 text-white text-xs font-medium py-2 rounded-lg transition-colors" style="background: var(--color-accent-moss);"><iconify-icon icon="solar:chat-round-line-bold" width="14"></iconify-icon> WhatsApp</a>
-                        <a href="tel:+${RESTAURANT.phoneHref.replace('+','')}" class="flex items-center justify-center gap-1.5 border text-xs font-medium py-2 px-3 rounded-lg transition-colors" style="border-color: rgba(0,0,0,0.1); color: var(--color-charcoal);"><iconify-icon icon="solar:phone-linear" width="14"></iconify-icon></a>
+                        <a href="tel:+${RESTAURANT.phoneHref.replace('+','')}" class="flex-1 flex items-center justify-center gap-1.5 text-white text-xs font-medium py-2 rounded-lg transition-colors" style="background: var(--color-primary);"><iconify-icon icon="solar:phone-bold" width="14"></iconify-icon> Call to Order</a>
                     </div>
                 </div>
             </div>`;

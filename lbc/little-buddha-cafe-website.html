@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Buddha Cafe | Global Vegetarian Dining on the Ganga, Rishikesh</title>
+<meta name="description" content="Riverside vegetarian cafe near Laxman Jhula, Rishikesh — Indian, Israeli, Italian, Mexican and Tibetan dishes with a view of the Ganga. View the menu, reserve a table, or plan your event.">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Little Buddha Cafe — Global Flavours on the Banks of the Ganga">
+<meta property="og:description" content="Riverside vegetarian cafe near Laxman Jhula, Rishikesh, serving Indian, Israeli, Italian, Mexican and Tibetan dishes.">
+<meta property="og:image" content="hero-riverview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --color-primary: #9C4A3C; --color-primary-dark: #7A392E; --color-secondary: #DD8F2A;
+        --color-accent-moss: #3E6E58; --color-accent-sky: #4C7A9E;
+        --color-bg: #F5EEDC; --color-bg-warm: #ECDEC0;
+        --color-charcoal: #1E332E; --color-charcoal-soft: #4B5A54;
+        --font-display: 'Fraunces', serif; --font-body: 'Karla', sans-serif; --font-script: 'Caveat', cursive;
+        --radius-sm: 10px; --radius-md: 20px; --radius-lg: 32px;
+    }
+    body { font-family: var(--font-body); background-color: var(--color-bg); color: var(--color-charcoal); }
+    .font-display { font-family: var(--font-display); } .font-script { font-family: var(--font-script); }
+    .hide-scrollbar::-webkit-scrollbar { display: none; } .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .texture-paper { background-image: radial-gradient(rgba(156,74,60,0.035) 1px, transparent 1px); background-size: 14px 14px; }
+    .ornament-flags { display: flex; align-items: center; gap: 6px; }
+    .ornament-flags span { width: 7px; height: 7px; clip-path: polygon(0 0, 100% 0, 100% 65%, 50% 100%, 0 65%); }
+    #navbar { transition: background-color .35s ease, box-shadow .35s ease, border-color .35s ease; border-bottom: 1px solid transparent; }
+    #navbar .navbar-inner { transition: height .35s ease; }
+    #navbar.scrolled { background-color: rgba(245,238,220,0.96); box-shadow: 0 2px 20px rgba(0,0,0,0.05); backdrop-filter: blur(10px); border-bottom-color: rgba(221,143,42,0.25); }
+    #navbar.scrolled .navbar-inner { height: 4.5rem; } #navbar.at-top .navbar-inner { height: 5.5rem; } #navbar.at-top { background-color: transparent; }
+    #navbar.at-top .nav-link, #navbar.at-top .nav-logo-text { color: #fff; } #navbar.scrolled .nav-link, #navbar.scrolled .nav-logo-text { color: var(--color-charcoal); }
+    #navbar.at-top .nav-icon-btn { color: #fff; } #navbar.scrolled .nav-icon-btn { color: var(--color-charcoal); }
+    #navbar.at-top .nav-micro { color: rgba(255,255,255,0.65); } #navbar.scrolled .nav-micro { color: var(--color-charcoal-soft); }
+    .btn-rect { display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 2px; border: 1px solid transparent; transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .3s ease; }
+    .btn-rect-solid { background: var(--color-primary); color: #fff; border-color: var(--color-primary); } .btn-rect-solid:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+    .btn-rect-outline { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); } .btn-rect-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.7); }
+    .btn-rect .btn-arrow { transition: transform .3s ease; } .btn-rect:hover .btn-arrow { transform: translateX(4px); }
+    .link-underline { position: relative; padding-bottom: 3px; } .link-underline::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0.3); transform-origin: left; opacity: 0.5; transition: transform .35s ease, opacity .35s ease; } .link-underline:hover::after { transform: scaleX(1); opacity: 1; }
+    .hero-anim { opacity: 0; transform: translateY(18px); animation: heroFadeUp .8s cubic-bezier(.22,.61,.36,1) forwards; }
+    .hero-anim-1 { animation-delay: .15s; } .hero-anim-2 { animation-delay: .32s; } .hero-anim-3 { animation-delay: .48s; } .hero-anim-4 { animation-delay: .64s; } .hero-anim-5 { animation-delay: .8s; }
+    @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
+    .hero-media-anim { animation: heroMediaIn 1.4s cubic-bezier(.22,.61,.36,1) forwards; } @keyframes heroMediaIn { from { opacity: 0; transform: scale(1.06); } to { opacity: 1; transform: scale(1); } }
+    .scroll-indicator { transition: opacity .4s ease; } .scroll-indicator .scroll-line { width: 1px; height: 28px; background: rgba(255,255,255,0.4); overflow: hidden; position: relative; }
+    .scroll-indicator .scroll-line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--color-secondary); animation: scrollLineMove 1.8s ease-in-out infinite; } @keyframes scrollLineMove { 0% { top: -100%; } 60% { top: 100%; } 100% { top: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .hero-anim, .hero-media-anim { animation: none; opacity: 1; transform: none; } .scroll-indicator .scroll-line::after { animation: none; } }
+    .chip { flex-shrink: 0; padding: 8px 16px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; border: 1px solid rgba(0,0,0,0.1); color: var(--color-charcoal-soft); background: #fff; transition: background-color .2s ease, color .2s ease, border-color .2s ease; cursor: pointer; }
+    .chip.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .chip-outline { flex-shrink: 0; padding: 8px 14px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; border: 1px solid rgba(0,0,0,0.12); color: var(--color-charcoal-soft); background: var(--color-bg-warm); transition: background-color .2s ease, color .2s ease, border-color .2s ease; cursor: pointer; }
+    .chip-outline.active { background: rgba(156,74,60,0.08); color: var(--color-primary); border-color: var(--color-primary); }
+    .active-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(156,74,60,0.08); color: var(--color-primary); } .active-chip button { display: flex; }
+    .badge-pill { display: inline-flex; align-items: center; font-size: 9px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; }
+    .badge-bestseller { background: rgba(221,143,42,0.2); color: #8a5f16; } .badge-new { background: rgba(62,110,88,0.14); color: var(--color-accent-moss); } .badge-chefspecial { background: rgba(156,74,60,0.1); color: var(--color-primary); } .badge-seasonal { background: rgba(0,0,0,0.06); color: var(--color-charcoal-soft); } .badge-unavailable { background: rgba(0,0,0,0.06); color: var(--color-charcoal-soft); }
+    .menu-item.is-unavailable { opacity: 0.55; } .menu-item.is-unavailable .order-actions { pointer-events: none; opacity: 0.5; }
+    .badge-veg { width: 14px; height: 14px; border: 1.5px solid var(--color-accent-moss); display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; } .badge-veg::after { content: ''; width: 6px; height: 6px; background: var(--color-accent-moss); border-radius: 50%; }
+    .hover-zoom img { transition: transform .7s cubic-bezier(.22,.61,.36,1); } .hover-zoom:hover img { transform: scale(1.06); }
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; } .fade-up.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .hover-zoom img { transition: none; } .fade-up { opacity: 1; transform: none; transition: none; } .animate-ping { animation: none; } }
+    @media (max-width: 767px) { body { padding-bottom: 74px; } }
+    #mobileNav { opacity: 0; transition: opacity .35s ease; } #mobileNav.nav-open { opacity: 1; }
+    #mobileNav .mobile-nav-link { opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; } #mobileNav.nav-open .mobile-nav-link { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { #mobileNav, #mobileNav .mobile-nav-link { transition: none; } }
+    /* Dish icon tiles — used for every menu item that doesn't have a real photo */
+    .dish-visual-photo { width: 7rem; height: auto; object-fit: cover; flex-shrink: 0; }
+    .dish-visual-icon { width: 7rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--tile-bg); }
+    .dish-visual-icon svg { width: 34px; height: 34px; }
+    @media print { nav, footer, #mobileBar, .no-print { display: none !important; } body { padding-bottom: 0 !important; background: #fff !important; } #menu { padding-top: 0 !important; } }
+</style>
+</head>
+<body class="antialiased selection:bg-[#DD8F2A]/30 selection:text-[#9C4A3C]">
+
+<!-- ⚠ phoneDisplay/phoneHref/whatsapp and hours are placeholders — swap for the real numbers -->
+<script>
+    const RESTAURANT = {
+        name: "Little Buddha Cafe", tagline: "Global Flavours on the Banks of the Ganga",
+        cuisine: ["Indian", "Israeli", "Italian", "Mexican", "Tibetan"], city: "Laxman Jhula, Rishikesh",
+        phoneDisplay: "+91 12345 67890", phoneHref: "+911234567890", whatsapp: "911234567890",
+        address: "Near Dhanaulti Temple, Laxman Jhula, Pauri Garhwal, Uttarakhand 249302",
+        hours: { 0: [7.5, 22.5], 1: [7.5, 22.5], 2: [7.5, 22.5], 3: [7.5, 22.5], 4: [7.5, 22.5], 5: [7.5, 22.5], 6: [7.5, 22.5] }
+    };
+</script>
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Restaurant", "name": "Little Buddha Cafe", "servesCuisine": ["Indian","Israeli","Italian","Mexican","Tibetan"],
+  "address": { "@type": "PostalAddress", "streetAddress": "Near Dhanaulti Temple, Laxman Jhula", "addressLocality": "Rishikesh", "addressRegion": "Uttarakhand", "postalCode": "249302", "addressCountry": "IN" },
+  "telephone": "+911234567890", "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "07:30", "closes": "22:30" }], "acceptsReservations": "True" }
+</script>
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 at-top">
+    <div class="navbar-inner max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2 nav-logo-text"><iconify-icon icon="solar:flower-linear" width="22" style="color: var(--color-secondary)"></iconify-icon><span class="font-display text-2xl font-semibold tracking-wide">Little Buddha</span></a>
+        <div class="hidden lg:flex items-center gap-9 text-[13px] font-medium tracking-[0.1em] uppercase nav-link">
+            <a href="#menu" class="hover:opacity-70 transition-opacity">Menu</a><a href="#dining-experience" class="hover:opacity-70 transition-opacity">Dining</a><a href="#story" class="hover:opacity-70 transition-opacity">Our Story</a><a href="#celebrate" class="hover:opacity-70 transition-opacity">Events</a><a href="#gallery" class="hover:opacity-70 transition-opacity">Gallery</a>
+        </div>
+        <div class="flex items-center gap-5">
+            <span class="nav-micro hidden xl:inline text-[11px] tracking-[0.12em] uppercase">Rishikesh &middot; Uttarakhand</span>
+            <a href="#reserve" class="btn-rect btn-rect-solid hidden lg:inline-flex" style="border-radius: 2px;">Reserve a Table</a>
+            <button id="mobileMenuBtn" class="lg:hidden nav-icon-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><iconify-icon icon="solar:hamburger-menu-linear" width="26"></iconify-icon></button>
+        </div>
+    </div>
+</nav>
+
+<div id="mobileNav" class="hidden fixed inset-0 z-[60]" style="background: var(--color-charcoal);" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="flex justify-between items-center px-6 h-20"><span class="font-display text-2xl text-white font-semibold">Little Buddha</span><button id="mobileNavClose" class="text-white" aria-label="Close menu"><iconify-icon icon="solar:close-circle-linear" width="30"></iconify-icon></button></div>
+    <div class="px-6 flex flex-col gap-6 mt-6 text-white font-display text-3xl">
+        <a href="#dining-experience" class="mobile-nav-link" style="transition-delay: .04s;">Dining</a><a href="#menu" class="mobile-nav-link" style="transition-delay: .08s;">Menu</a><a href="#story" class="mobile-nav-link" style="transition-delay: .12s;">Our Story</a><a href="#celebrate" class="mobile-nav-link" style="transition-delay: .16s;">Events</a><a href="#gallery" class="mobile-nav-link" style="transition-delay: .2s;">Gallery</a>
+    </div>
+    <div class="px-6 mt-10 space-y-3"><a href="#reserve" class="mobile-nav-link btn-rect btn-rect-solid w-full justify-center" style="transition-delay: .24s; border-radius: 2px;">Reserve a Table</a><a href="#celebrate" class="mobile-nav-link btn-rect btn-rect-outline w-full justify-center" style="transition-delay: .27s; border-radius: 2px;">Plan an Event</a></div>
+    <div class="px-6 mt-10 flex items-center gap-6 text-white/70 text-sm mobile-nav-link" style="transition-delay: .3s;"><a href="tel:+911234567890" class="flex items-center gap-2"><iconify-icon icon="solar:phone-linear" width="18"></iconify-icon> Call</a><a href="#location" class="mobile-nav-link flex items-center gap-2"><iconify-icon icon="solar:map-point-linear" width="18"></iconify-icon> Directions</a></div>
+</div>
+
+<div id="mobileBar" class="lg:hidden fixed bottom-0 left-0 right-0 z-50 grid grid-cols-4 text-[11px] font-medium" style="background:#fff; border-top:1px solid rgba(0,0,0,0.08); box-shadow:0 -6px 16px rgba(0,0,0,0.06);">
+    <a href="tel:+911234567890" class="flex flex-col items-center justify-center py-2.5 gap-1" style="color: var(--color-charcoal);"><iconify-icon icon="solar:phone-bold" width="19"></iconify-icon> Call</a>
+    <a href="https://wa.me/911234567890?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" class="flex flex-col items-center justify-center py-2.5 gap-1" style="color: var(--color-accent-moss);"><iconify-icon icon="solar:chat-round-line-bold" width="19"></iconify-icon> WhatsApp</a>
+    <a href="#location" class="flex flex-col items-center justify-center py-2.5 gap-1" style="color: var(--color-primary);"><iconify-icon icon="solar:map-point-bold" width="19"></iconify-icon> Directions</a>
+    <a href="#reserve" class="flex flex-col items-center justify-center py-2.5 gap-1 font-semibold" style="color: #fff; background: var(--color-primary);"><iconify-icon icon="solar:calendar-mark-bold" width="19"></iconify-icon> Reserve</a>
+</div>
+
+<header class="relative w-full min-h-[92vh] flex items-end overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="hero-riverview.jpg" alt="View of the Ganga and the hills from Little Buddha Cafe" class="hero-media-anim w-full h-full object-cover">
+        <div class="absolute inset-0" aria-hidden="true" style="background: linear-gradient(180deg, rgba(30,51,46,0.5) 0%, rgba(30,51,46,0.32) 45%, rgba(30,51,46,0.92) 100%), linear-gradient(90deg, rgba(13,13,12,0.55) 0%, rgba(13,13,12,0.18) 55%, rgba(13,13,12,0.05) 100%);"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 pb-24 pt-40">
+        <p class="hero-anim hero-anim-1 text-xs tracking-[0.3em] uppercase mb-6" style="color: var(--color-secondary);">Riverside Cafe &middot; Global Menu</p>
+        <h1 class="hero-anim hero-anim-2 font-display text-white font-semibold leading-[0.95] mb-6" style="font-size: clamp(2.75rem, 7vw, 6.5rem);">Where the World's Flavours<br>Meet the Ganga's Edge</h1>
+        <p class="hero-anim hero-anim-3 text-white/80 text-base md:text-lg max-w-xl font-light leading-relaxed mb-9">Indian, Israeli, Italian, Mexican and Tibetan dishes, served on an open-air deck above the river — near Laxman Jhula, Rishikesh.</p>
+        <div class="hero-anim hero-anim-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 mb-12">
+            <a href="#reserve" class="btn-rect btn-rect-solid">Reserve a Table <iconify-icon icon="solar:arrow-right-linear" width="16" class="btn-arrow"></iconify-icon></a>
+            <a href="#menu" class="link-underline text-white text-xs font-semibold tracking-[0.12em] uppercase w-fit">View Menu</a>
+        </div>
+        <div class="hero-anim hero-anim-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span id="heroMicrocopy" class="inline-flex items-center gap-2 text-white/90 text-sm"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background: var(--color-secondary);"></span><span class="relative inline-flex rounded-full h-2 w-2" style="background: var(--color-secondary);"></span></span><span id="heroMicrocopyText">Checking today's hours…</span></span>
+            <span class="hidden sm:inline text-white/30">&middot;</span><span class="text-white/60 text-xs tracking-[0.15em] uppercase">Laxman Jhula &middot; Rishikesh</span>
+        </div>
+    </div>
+    <a href="#menu" id="scrollIndicator" class="scroll-indicator hidden sm:flex absolute bottom-8 right-8 z-10 flex-col items-center gap-3 text-white/70 hover:text-white transition-colors" aria-label="Scroll to explore the menu"><span class="text-[10px] tracking-[0.25em] uppercase" style="writing-mode: vertical-rl;">Discover</span><span class="scroll-line" aria-hidden="true"></span></a>
+</header>
+
+<div class="hidden md:block border-b" style="background: var(--color-charcoal); border-color: rgba(255,255,255,0.08);">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-center gap-10 text-white/80 text-xs tracking-[0.15em] uppercase">
+        <a href="tel:+911234567890" class="flex items-center gap-2 hover:text-white transition-colors"><iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> Call the Cafe</a><span class="w-1 h-1 rounded-full bg-white/20"></span>
+        <a href="#location" class="flex items-center gap-2 hover:text-white transition-colors"><iconify-icon icon="solar:map-point-linear" width="16"></iconify-icon> Get Directions</a><span class="w-1 h-1 rounded-full bg-white/20"></span>
+        <a href="#reserve" class="flex items-center gap-2 hover:text-white transition-colors"><iconify-icon icon="solar:calendar-mark-linear" width="16"></iconify-icon> Reserve a Table</a><span class="w-1 h-1 rounded-full bg-white/20"></span>
+        <a href="https://wa.me/911234567890" target="_blank" class="flex items-center gap-2 hover:text-white transition-colors"><iconify-icon icon="solar:chat-round-line-linear" width="16"></iconify-icon> WhatsApp Us</a><span class="w-1 h-1 rounded-full bg-white/20"></span>
+        <a href="#menu" class="flex items-center gap-2 hover:text-white transition-colors"><iconify-icon icon="solar:notes-linear" width="16"></iconify-icon> Explore the Menu</a>
+    </div>
+</div>
+
+<section class="py-24 px-6 texture-paper">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">Why Travellers Keep Coming Back</p><h2 class="font-display font-semibold" style="font-size: clamp(2rem, 4vw, 3rem);">Three reasons every table returns</h2></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="fade-up"><span class="font-display text-5xl" style="color: var(--color-secondary);">01</span><h3 class="font-display text-2xl font-semibold mt-3 mb-2">Made Fresh, Every Plate</h3><p class="text-sm leading-relaxed" style="color: var(--color-charcoal-soft);">From wood-fired pizza to fresh-pressed juice, everything is made to order in our own kitchen.</p></div>
+            <div class="fade-up"><span class="font-display text-5xl" style="color: var(--color-secondary);">02</span><h3 class="font-display text-2xl font-semibold mt-3 mb-2">A View Worth Staying For</h3><p class="text-sm leading-relaxed" style="color: var(--color-charcoal-soft);">Open-air seating right above the Ganga, built for slow breakfasts and long afternoons.</p></div>
+            <div class="fade-up"><span class="font-display text-5xl" style="color: var(--color-secondary);">03</span><h3 class="font-display text-2xl font-semibold mt-3 mb-2">A Menu From Everywhere</h3><p class="text-sm leading-relaxed" style="color: var(--color-charcoal-soft);">Indian curries, Tibetan momos, Israeli plates, Mexican specials and Italian classics, side by side.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-6" style="background: var(--color-charcoal);">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-secondary);">Cafe Favourites</p><h2 class="font-display text-white font-semibold" style="font-size: clamp(2rem, 4vw, 3rem);">Dishes worth the visit</h2></div>
+        <div id="signatureGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        <div class="text-center mt-12"><a href="#menu" class="inline-flex items-center gap-2 text-sm font-semibold tracking-wide uppercase pb-1 border-b" style="color: var(--color-secondary); border-color: var(--color-secondary);">View Full Menu <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a></div>
+    </div>
+</section>
+
+<section id="menu" class="bg-white border-t" style="border-color: rgba(0,0,0,0.06);">
+    <div class="max-w-7xl mx-auto px-6 pt-24">
+        <div class="text-center mb-8"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">Our Menu</p><h2 class="font-display font-semibold" style="font-size: clamp(2rem, 4vw, 3rem);">A Menu From Everywhere</h2><p class="text-sm mt-3 max-w-lg mx-auto" style="color: var(--color-charcoal-soft);">100% vegetarian, worldwide in spirit. 🟢 marks vegetarian, 🌶 marks spice level.</p></div>
+        <div class="max-w-xl mx-auto mb-8 flex items-center gap-2">
+            <div class="relative flex-1"><iconify-icon icon="solar:magnifer-linear" width="20" class="absolute left-4 top-1/2 -translate-y-1/2" style="color: var(--color-charcoal-soft);"></iconify-icon>
+                <input id="menuSearch" type="text" placeholder="Search dishes, ingredients or cuisines…" class="w-full rounded-full pl-12 pr-10 py-3.5 text-sm focus:outline-none focus:ring-2 transition-all" style="background: var(--color-bg-warm); border:1px solid rgba(0,0,0,0.06); --tw-ring-color: var(--color-primary);">
+                <button id="clearSearch" class="hidden absolute right-4 top-1/2 -translate-y-1/2" style="color: var(--color-charcoal-soft);" aria-label="Clear search"><iconify-icon icon="solar:close-circle-bold" width="18"></iconify-icon></button>
+            </div>
+            <button id="openFilters" class="shrink-0 flex items-center gap-1.5 rounded-full px-4 py-3.5 text-sm font-medium transition-colors" style="background: var(--color-bg-warm); border:1px solid rgba(0,0,0,0.06); color: var(--color-charcoal);" aria-haspopup="dialog" aria-controls="filterDrawer"><iconify-icon icon="solar:tuning-2-linear" width="18"></iconify-icon><span class="hidden sm:inline">Filters</span><span id="filterCount" class="hidden ml-0.5 w-4 h-4 rounded-full text-[10px] font-semibold items-center justify-center" style="background: var(--color-primary); color:#fff;">0</span></button>
+        </div>
+        <div id="mealTimeTabs" role="tablist" aria-label="Filter by meal time" class="flex justify-center gap-2 overflow-x-auto hide-scrollbar mb-6 pb-1"></div>
+        <div class="mb-2"><p class="text-center text-[11px] tracking-[0.2em] uppercase mb-3" style="color: var(--color-charcoal-soft);">Explore by Cuisine</p><div id="cuisineExplorer" class="flex justify-center gap-2 overflow-x-auto hide-scrollbar pb-1"></div></div>
+        <div id="activeFilters" class="hidden max-w-3xl mx-auto mt-6 flex flex-wrap items-center justify-center gap-2"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 py-10">
+        <p id="noResults" class="hidden text-center text-sm py-16" style="color: var(--color-charcoal-soft);"><span class="block font-display text-xl mb-2" style="color: var(--color-charcoal);">No dishes found</span>Try another dish, cuisine or ingredient.</p>
+        <div id="menuContainer" class="space-y-16"></div>
+    </div>
+</section>
+
+<div id="filterDrawer" class="hidden fixed inset-0 z-[70]" role="dialog" aria-modal="true" aria-labelledby="filterDrawerTitle">
+    <div id="filterDrawerBackdrop" class="absolute inset-0" style="background: rgba(10,7,7,0.5);"></div>
+    <div class="absolute bottom-0 left-0 right-0 md:top-1/2 md:left-1/2 md:right-auto md:bottom-auto md:-translate-x-1/2 md:-translate-y-1/2 md:w-[440px] w-full bg-white rounded-t-[2rem] md:rounded-[1.5rem] max-h-[85vh] flex flex-col">
+        <div class="flex items-center justify-between px-6 pt-5 pb-4 border-b" style="border-color: rgba(0,0,0,0.06);"><h3 id="filterDrawerTitle" class="font-display text-xl font-semibold">Filter Menu</h3><button id="closeFilters" class="p-1 text-stone-500 hover:text-stone-900" aria-label="Close filters"><iconify-icon icon="solar:close-circle-linear" width="26"></iconify-icon></button></div>
+        <div id="filterDrawerBody" class="px-6 py-5 space-y-7 overflow-y-auto"></div>
+        <div class="flex gap-3 px-6 py-4 border-t" style="border-color: rgba(0,0,0,0.06);"><button id="filterClearAll" class="flex-1 py-3 rounded-xl text-sm font-semibold border" style="border-color: rgba(0,0,0,0.12); color: var(--color-charcoal);">Clear All</button><button id="filterApply" class="flex-1 py-3 rounded-xl text-sm font-semibold" style="background: var(--color-primary); color:#fff;">Apply</button></div>
+    </div>
+</div>
+
+<section id="dining-experience" class="py-24 px-6 texture-paper">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">The Experience</p><h2 class="font-display font-semibold" style="font-size: clamp(2rem, 4vw, 3rem);">More than a meal</h2></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div class="relative rounded-[2rem] overflow-hidden hover-zoom h-[420px]"><img src="interior-1.jpg" class="w-full h-full object-cover" alt="Open-air bamboo seating at Little Buddha Cafe"><div class="absolute inset-0" style="background: linear-gradient(0deg, rgba(30,51,46,0.75), transparent 55%);"></div><div class="absolute bottom-6 left-6 right-6 text-white"><h3 class="font-display text-2xl font-semibold mb-1">River-Facing Seating</h3><p class="text-sm text-white/80">Open-air bamboo seating right above the Ganga, built for slow mornings and long lunches.</p></div></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="relative rounded-[1.5rem] overflow-hidden hover-zoom h-[190px] sm:h-full"><img src="interior-2.jpg" class="w-full h-full object-cover" alt="Solo travellers dining"><div class="absolute inset-0" style="background: linear-gradient(0deg, rgba(30,51,46,0.7), transparent 60%);"></div><span class="absolute bottom-4 left-4 text-white font-display text-lg font-semibold">Solo</span></div>
+                <div class="relative rounded-[1.5rem] overflow-hidden hover-zoom h-[190px] sm:h-full"><img src="table-spread.jpg" class="w-full h-full object-cover" alt="Couples sharing a table spread"><div class="absolute inset-0" style="background: linear-gradient(0deg, rgba(30,51,46,0.7), transparent 60%);"></div><span class="absolute bottom-4 left-4 text-white font-display text-lg font-semibold">Couples</span></div>
+                <div class="relative rounded-[1.5rem] overflow-hidden hover-zoom h-[190px] sm:h-full"><img src="menu-cover.jpg" class="w-full h-full object-cover" alt="Groups browsing the menu together"><div class="absolute inset-0" style="background: linear-gradient(0deg, rgba(30,51,46,0.7), transparent 60%);"></div><span class="absolute bottom-4 left-4 text-white font-display text-lg font-semibold">Groups</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="story" class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div class="relative rounded-[2rem] overflow-hidden h-[420px]"><img src="hero-riverview.jpg" class="w-full h-full object-cover" alt="The Ganga and the hills from Little Buddha Cafe"></div>
+        <div>
+            <p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">Our Story</p>
+            <h2 class="font-display font-semibold mb-5" style="font-size: clamp(1.9rem, 3.5vw, 2.75rem);">Started with a view worth sharing</h2>
+            <p class="text-sm leading-relaxed mb-8" style="color: var(--color-charcoal-soft);">[Placeholder — replace with the real founding story: who started Little Buddha, why, and what hasn't changed since.] What's stayed the same is the view, and a menu built for travellers who find their way here from everywhere.</p>
+            <div class="grid grid-cols-2 gap-6 mb-8"><div><span class="font-display text-4xl font-semibold" style="color: var(--color-primary);">5</span><p class="text-xs uppercase tracking-wide mt-1" style="color: var(--color-charcoal-soft);">Cuisines, One Menu</p></div><div><span class="font-display text-4xl font-semibold" style="color: var(--color-primary);">[X]+</span><p class="text-xs uppercase tracking-wide mt-1" style="color: var(--color-charcoal-soft);">Years on the Ganga</p></div></div>
+            <p class="text-xs italic" style="color: var(--color-charcoal-soft);">*[X]+ is a placeholder — swap in the real number before publishing.</p>
+        </div>
+    </div>
+</section>
+
+<section id="celebrate" class="relative py-24 px-6 overflow-hidden">
+    <div class="absolute inset-0 z-0"><img src="falafel-plate-2.jpg" class="w-full h-full object-cover" alt=""><div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(156,74,60,0.93), rgba(122,57,46,0.96));"></div></div>
+    <div class="relative z-10 max-w-7xl mx-auto text-center mb-16">
+        <p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-secondary);">Celebrate Here</p>
+        <h2 class="font-display text-white font-semibold mb-4" style="font-size: clamp(2.2rem, 5vw, 4rem);">Your Trip. Our Table.<br>A Meal You'll Remember.</h2>
+        <p class="text-white/75 max-w-xl mx-auto text-sm">Tell us what you're planning and we'll take it from there.</p>
+    </div>
+    <div class="relative z-10 max-w-5xl mx-auto mb-16"><p class="text-center text-white/60 text-xs tracking-[0.2em] uppercase mb-5">What are you planning?</p><div id="occasionGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3"></div></div>
+    <div class="relative z-10 max-w-4xl mx-auto mb-16">
+        <p class="text-center text-white/60 text-xs tracking-[0.2em] uppercase mb-6">Event Capacity</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="rounded-2xl p-6 text-center" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(4px);"><p class="text-white/60 text-xs uppercase tracking-wide mb-2">Intimate</p><p class="font-display text-4xl font-semibold text-white mb-1">10–20</p><p class="text-white/60 text-xs">Guests</p></div>
+            <div class="rounded-2xl p-6 text-center" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(4px);"><p class="text-white/60 text-xs uppercase tracking-wide mb-2">Group</p><p class="font-display text-4xl font-semibold text-white mb-1">20–50</p><p class="text-white/60 text-xs">Guests</p></div>
+            <div class="rounded-2xl p-6 text-center" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); backdrop-filter: blur(4px);"><p class="text-white/60 text-xs uppercase tracking-wide mb-2">Large</p><p class="font-display text-4xl font-semibold text-white mb-1">50–100+</p><p class="text-white/60 text-xs">Guests</p></div>
+        </div>
+    </div>
+    <div class="relative z-10 max-w-2xl mx-auto rounded-[2rem] p-8 md:p-10 relative overflow-hidden" style="background: var(--color-bg);">
+        <h3 class="font-display text-2xl font-semibold mb-1">Request Event Availability</h3><p class="text-sm mb-6" style="color: var(--color-charcoal-soft);">We'll confirm details by phone or WhatsApp.</p>
+        <form id="eventForm" onsubmit="return showSuccessMessage('eventForm', 'eventSuccess')" class="space-y-4 relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <select id="occasionSelect" required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1" style="background:#fff; border:1px solid rgba(0,0,0,0.12); --tw-ring-color: var(--color-primary);"><option value="" disabled selected>Occasion</option><option>Birthday</option><option>Farewell Dinner</option><option>Group Trip</option><option>Retreat Group</option><option>Anniversary</option><option>Private Celebration</option></select>
+                <select required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1" style="background:#fff; border:1px solid rgba(0,0,0,0.12); --tw-ring-color: var(--color-primary);"><option value="" disabled selected>Guest Count</option><option>10–20</option><option>20–50</option><option>50–100</option><option>100+</option></select>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><input type="text" required placeholder="Your Name" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1" style="background:#fff; border:1px solid rgba(0,0,0,0.12); --tw-ring-color: var(--color-primary);"><input type="tel" required placeholder="Phone Number" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1" style="background:#fff; border:1px solid rgba(0,0,0,0.12); --tw-ring-color: var(--color-primary);"></div>
+            <input type="date" required class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1" style="background:#fff; border:1px solid rgba(0,0,0,0.12); --tw-ring-color: var(--color-primary);">
+            <textarea rows="2" placeholder="Anything else we should know? (optional)" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 resize-none" style="background:#fff; border:1px solid rgba(0,0,0,0.12); --tw-ring-color: var(--color-primary);"></textarea>
+            <button type="submit" class="w-full font-semibold py-3.5 rounded-xl text-sm tracking-wide uppercase transition-colors" style="background: var(--color-primary); color:#fff;">Request Availability</button>
+        </form>
+        <div id="eventSuccess" class="hidden absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center" style="background: var(--color-bg);"><div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: rgba(62,110,88,0.14); color: var(--color-accent-moss);"><iconify-icon icon="solar:check-circle-bold" width="28"></iconify-icon></div><h3 class="font-display text-2xl font-semibold mb-2">Inquiry Sent!</h3><p class="text-sm max-w-sm" style="color: var(--color-charcoal-soft);">Our team will reach out shortly to confirm availability.</p></div>
+    </div>
+</section>
+
+<section id="gallery" class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">Atmosphere</p><h2 class="font-display font-semibold" style="font-size: clamp(2rem, 4vw, 3rem);">A Look Inside</h2></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" style="grid-auto-rows: 180px;">
+            <button class="gallery-item hover-zoom relative rounded-2xl overflow-hidden col-span-2 row-span-2" data-full="interior-1.jpg"><img src="interior-1.jpg" class="w-full h-full object-cover" alt="Open-air bamboo seating"></button>
+            <button class="gallery-item hover-zoom relative rounded-2xl overflow-hidden" data-full="quesadilla.jpg"><img src="quesadilla.jpg" class="w-full h-full object-cover" alt="Loaded quesadilla"></button>
+            <button class="gallery-item hover-zoom relative rounded-2xl overflow-hidden" data-full="hero-riverview.jpg"><img src="hero-riverview.jpg" class="w-full h-full object-cover" alt="The view from our deck"></button>
+            <button class="gallery-item hover-zoom relative rounded-2xl overflow-hidden" data-full="hakka-noodles.jpg"><img src="hakka-noodles.jpg" class="w-full h-full object-cover" alt="Veg hakka noodles"></button>
+            <button class="gallery-item hover-zoom relative rounded-2xl overflow-hidden" data-full="quinoa-bowl.jpg"><img src="quinoa-bowl.jpg" class="w-full h-full object-cover" alt="Buddha salad bowl"></button>
+            <button class="gallery-item hover-zoom relative rounded-2xl overflow-hidden col-span-2" data-full="veggie-pizza.jpg"><img src="veggie-pizza.jpg" class="w-full h-full object-cover" alt="Wood-fired veggie pizza"></button>
+        </div>
+    </div>
+</section>
+
+<div id="lightbox" class="hidden fixed inset-0 z-[70] items-center justify-center p-6" style="background: rgba(10,7,7,0.92);"><button id="lightboxClose" class="absolute top-6 right-6 text-white" aria-label="Close"><iconify-icon icon="solar:close-circle-linear" width="32"></iconify-icon></button><img id="lightboxImg" src="" alt="" class="max-h-[85vh] max-w-full rounded-lg object-contain"></div>
+
+<!-- ⚠ Placeholder demo testimonials (names/photos), same convention as the source template — replace with real, permission-cleared reviews. 4.5★/8,000+ is a real public aggregate as of this draft (Restaurant Guru) — reconfirm before publishing. -->
+<section id="reviews" class="py-24 px-6 texture-paper">
+    <div class="max-w-6xl mx-auto text-center mb-14">
+        <p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">What Our Guests Say</p>
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Placeholder reviewer" class="w-16 h-16 rounded-full object-cover mx-auto mb-5" style="box-shadow: 0 0 0 4px var(--color-secondary);">
+        <blockquote class="font-display italic mb-6" style="font-size: clamp(1.5rem, 3vw, 2.25rem); color: var(--color-charcoal);">"The view alone is worth the walk up — and somehow the menu does Indian, Israeli and Italian all really well."</blockquote>
+        <div class="flex justify-center gap-1 mb-3" style="color: var(--color-secondary);"><iconify-icon icon="solar:star-bold" width="18"></iconify-icon><iconify-icon icon="solar:star-bold" width="18"></iconify-icon><iconify-icon icon="solar:star-bold" width="18"></iconify-icon><iconify-icon icon="solar:star-bold" width="18"></iconify-icon><iconify-icon icon="solar:star-bold" width="18"></iconify-icon></div>
+        <p class="text-sm" style="color: var(--color-charcoal-soft);">Placeholder Reviewer &middot; Google Review</p>
+    </div>
+    <div class="max-w-3xl mx-auto flex items-center justify-center gap-10 mb-16 text-center">
+        <div><p class="font-display text-5xl font-semibold" style="color: var(--color-primary);">4.5</p><p class="text-xs uppercase tracking-wide mt-1" style="color: var(--color-charcoal-soft);">Aggregate Rating</p></div><div class="w-px h-12" style="background: rgba(0,0,0,0.1);"></div>
+        <div><p class="font-display text-5xl font-semibold" style="color: var(--color-primary);">8,000+</p><p class="text-xs uppercase tracking-wide mt-1" style="color: var(--color-charcoal-soft);">Reviews</p></div><div class="w-px h-12 hidden sm:block" style="background: rgba(0,0,0,0.1);"></div>
+        <a href="#" target="_blank" class="hidden sm:inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide pb-1 border-b" style="color: var(--color-primary); border-color: var(--color-primary);">Read Our Reviews</a>
+    </div>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border" style="border-color: rgba(0,0,0,0.06);"><div class="flex gap-3 items-center mb-3"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Placeholder reviewer" class="w-10 h-10 rounded-full object-cover"><div><p class="text-sm font-semibold">Placeholder Reviewer</p><p class="text-xs" style="color: var(--color-charcoal-soft);">Solo Traveller</p></div></div><p class="text-sm leading-relaxed" style="color: var(--color-charcoal-soft);">"Spent an entire afternoon here with a book. Best hakka noodles I've had in Rishikesh."</p></div>
+        <div class="bg-white p-6 rounded-2xl border" style="border-color: rgba(0,0,0,0.06);"><div class="flex gap-3 items-center mb-3"><img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Placeholder reviewer" class="w-10 h-10 rounded-full object-cover"><div><p class="text-sm font-semibold">Placeholder Reviewer</p><p class="text-xs" style="color: var(--color-charcoal-soft);">Group Trip</p></div></div><p class="text-sm leading-relaxed" style="color: var(--color-charcoal-soft);">"Booked a table for 10 on our last night in Rishikesh. Food kept coming and everyone found something they loved."</p></div>
+        <div class="bg-white p-6 rounded-2xl border" style="border-color: rgba(0,0,0,0.06);"><div class="flex gap-3 items-center mb-3"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Placeholder reviewer" class="w-10 h-10 rounded-full object-cover"><div><p class="text-sm font-semibold">Placeholder Reviewer</p><p class="text-xs" style="color: var(--color-charcoal-soft);">Dine-in</p></div></div><p class="text-sm leading-relaxed" style="color: var(--color-charcoal-soft);">"Fully vegetarian and still the most varied menu I found on the whole trip. The Buddha salad is huge."</p></div>
+    </div>
+</section>
+
+<section class="py-20 px-6 bg-white border-t" style="border-color: rgba(0,0,0,0.06);">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">Before You Visit</p><h2 class="font-display font-semibold" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem);">Good to know</h2></div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+            <div><iconify-icon icon="solar:walking-round-linear" width="26" style="color: var(--color-primary);"></iconify-icon><p class="text-sm font-semibold mt-2">Getting Here</p><p class="text-xs mt-1" style="color: var(--color-charcoal-soft);">Pedestrian access near the footbridge</p></div>
+            <div><iconify-icon icon="solar:calendar-mark-linear" width="26" style="color: var(--color-primary);"></iconify-icon><p class="text-sm font-semibold mt-2">Reservations</p><p class="text-xs mt-1" style="color: var(--color-charcoal-soft);">Recommended for groups</p></div>
+            <div><iconify-icon icon="solar:t-shirt-linear" width="26" style="color: var(--color-primary);"></iconify-icon><p class="text-sm font-semibold mt-2">Dress Code</p><p class="text-xs mt-1" style="color: var(--color-charcoal-soft);">Casual — come as you are</p></div>
+            <div><iconify-icon icon="solar:card-linear" width="26" style="color: var(--color-primary);"></iconify-icon><p class="text-sm font-semibold mt-2">Payment</p><p class="text-xs mt-1" style="color: var(--color-charcoal-soft);">Cards &amp; digital accepted</p></div>
+            <div><iconify-icon icon="solar:cake-linear" width="26" style="color: var(--color-primary);"></iconify-icon><p class="text-sm font-semibold mt-2">Events</p><p class="text-xs mt-1" style="color: var(--color-charcoal-soft);">Advance booking required</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-6 texture-paper"><div class="max-w-3xl mx-auto"><div class="text-center mb-12"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">FAQ</p><h2 class="font-display font-semibold" style="font-size: clamp(2rem, 4vw, 3rem);">Common Questions</h2></div><div id="faqList" class="space-y-3"></div></div></section>
+
+<!-- ⚠ Map embed still points at the source template's placeholder location — swap pb= for Little Buddha's real map embed -->
+<section id="location" class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6">
+            <p class="text-xs tracking-[0.3em] uppercase" style="color: var(--color-primary);">Come Find Us</p><h2 class="font-display font-semibold" style="font-size: clamp(2rem, 4vw, 3rem);">Near Dhanaulti Temple</h2><p class="text-sm" style="color: var(--color-charcoal-soft);">Laxman Jhula, Pauri Garhwal, Uttarakhand 249302</p>
+            <div class="grid grid-cols-3 gap-4 py-2"><div><p class="font-display text-2xl font-semibold" style="color: var(--color-primary);">[X] min</p><p class="text-xs" style="color: var(--color-charcoal-soft);">from Ram Jhula</p></div><div><p class="font-display text-2xl font-semibold" style="color: var(--color-primary);">[X] min</p><p class="text-xs" style="color: var(--color-charcoal-soft);">from Rishikesh Bus Stand</p></div><div><p class="font-display text-2xl font-semibold" style="color: var(--color-primary);">[X] min</p><p class="text-xs" style="color: var(--color-charcoal-soft);">from Jolly Grant Airport</p></div></div>
+            <p class="text-xs italic" style="color: var(--color-charcoal-soft);">*Travel times are placeholders — replace with real estimates.</p>
+            <div class="space-y-2 text-sm pt-2" style="color: var(--color-charcoal-soft);"><div class="flex justify-between max-w-xs"><span>Every day</span><span>7:30 AM – 10:30 PM</span></div></div>
+            <p class="text-xs italic" style="color: var(--color-charcoal-soft);">*Hours are a placeholder — confirm the cafe's actual hours.</p>
+            <a href="https://www.google.com/maps" target="_blank" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide uppercase" style="background: var(--color-primary); color:#fff;">Get Directions <iconify-icon icon="solar:map-arrow-up-linear" width="18"></iconify-icon></a>
+        </div>
+        <div class="w-full h-96 rounded-[2rem] overflow-hidden border" style="border-color: rgba(0,0,0,0.06);"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215263158064!2d-73.9882207!3d40.7588949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ1JzMyLjAiTiA3M8KwNTknMTcuNiJX!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" loading="lazy"></iframe></div>
+    </div>
+</section>
+
+<section class="py-28 px-6 text-center" style="background: var(--color-charcoal);">
+    <div class="ornament-flags justify-center mb-8"><span style="background:var(--color-secondary)"></span><span style="background:var(--color-accent-moss)"></span><span style="background:var(--color-accent-sky)"></span></div>
+    <h2 class="font-display text-white font-semibold mb-4" style="font-size: clamp(2rem, 5vw, 3.5rem);">Your table is waiting.</h2><p class="text-white/70 max-w-md mx-auto mb-10 text-sm">Come for the view. Stay for the food.</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4"><a href="#reserve" class="px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase" style="background: var(--color-secondary); color: var(--color-charcoal);">Reserve a Table</a><a href="#celebrate" class="px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase border border-white/30 text-white">Plan Your Celebration</a></div>
+</section>
+
+<section id="reserve" class="py-24 px-6" style="background: var(--color-bg-warm);">
+    <div class="max-w-lg mx-auto">
+        <div class="text-center mb-8"><p class="text-xs tracking-[0.3em] uppercase mb-3" style="color: var(--color-primary);">Reserve</p><h2 class="font-display font-semibold" style="font-size: clamp(1.9rem, 4vw, 2.75rem);">Book Your Table</h2><p class="text-sm mt-2" style="color: var(--color-charcoal-soft);">We'll call to confirm shortly after you submit.</p></div>
+        <div class="bg-white rounded-[2rem] p-8 relative overflow-hidden shadow-sm border" style="border-color: rgba(0,0,0,0.06);">
+            <form id="reserveForm" onsubmit="return showSuccessMessage('reserveForm', 'reserveSuccess')" class="space-y-4 relative z-10">
+                <input type="text" required placeholder="Your Name" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1" style="background: var(--color-bg-warm); border:1px solid rgba(0,0,0,0.08); --tw-ring-color: var(--color-primary);">
+                <input type="tel" required placeholder="Phone Number" class="w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1" style="background: var(--color-bg-warm); border:1px solid rgba(0,0,0,0.08); --tw-ring-color: var(--color-primary);">
+                <div class="grid grid-cols-3 gap-3"><input type="date" required class="w-full rounded-xl px-3 py-3 text-xs focus:outline-none focus:ring-1" style="background: var(--color-bg-warm); border:1px solid rgba(0,0,0,0.08); --tw-ring-color: var(--color-primary);"><input type="time" required class="w-full rounded-xl px-3 py-3 text-xs focus:outline-none focus:ring-1" style="background: var(--color-bg-warm); border:1px solid rgba(0,0,0,0.08); --tw-ring-color: var(--color-primary);"><input type="number" min="1" required placeholder="Guests" class="w-full rounded-xl px-3 py-3 text-xs focus:outline-none focus:ring-1" style="background: var(--color-bg-warm); border:1px solid rgba(0,0,0,0.08); --tw-ring-color: var(--color-primary);"></div>
+                <button type="submit" class="w-full font-semibold py-3.5 rounded-xl text-sm tracking-wide uppercase" style="background: var(--color-primary); color:#fff;">Check Availability</button>
+            </form>
+            <div id="reserveSuccess" class="hidden absolute inset-0 z-20 flex flex-col items-center justify-center p-8 text-center bg-white"><div class="w-14 h-14 rounded-full flex items-center justify-center mb-4" style="background: rgba(62,110,88,0.14); color: var(--color-accent-moss);"><iconify-icon icon="solar:check-circle-bold" width="28"></iconify-icon></div><h3 class="font-display text-2xl font-semibold mb-2">Request Received!</h3><p class="text-sm max-w-sm" style="color: var(--color-charcoal-soft);">We'll call to confirm your table shortly.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer class="pt-16 pb-24 lg:pb-10 px-6" style="background: var(--color-charcoal);">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-14">
+            <div class="md:col-span-2 space-y-4"><span class="font-display text-2xl font-semibold text-white">Little Buddha Cafe</span><p class="text-white/60 text-sm leading-relaxed max-w-xs">Riverside vegetarian dining near Laxman Jhula, Rishikesh — Indian, Israeli, Italian, Mexican and Tibetan, all on one menu.</p><div class="flex items-center gap-4 pt-1"><a href="#" class="text-white/60 hover:text-white transition-colors"><iconify-icon icon="mdi:instagram" width="20"></iconify-icon></a><a href="#" class="text-white/60 hover:text-white transition-colors"><iconify-icon icon="mdi:facebook" width="20"></iconify-icon></a></div></div>
+            <div class="space-y-3"><h4 class="text-white text-xs font-semibold uppercase tracking-wide mb-2">Dining</h4><a href="#menu" class="block text-white/60 hover:text-white text-sm transition-colors">Menu</a><a href="#reserve" class="block text-white/60 hover:text-white text-sm transition-colors">Reserve a Table</a><a href="#story" class="block text-white/60 hover:text-white text-sm transition-colors">Our Story</a></div>
+            <div class="space-y-3"><h4 class="text-white text-xs font-semibold uppercase tracking-wide mb-2">Celebrations</h4><a href="#celebrate" class="block text-white/60 hover:text-white text-sm transition-colors">Private Events</a><a href="#celebrate" class="block text-white/60 hover:text-white text-sm transition-colors">Birthdays</a><a href="#celebrate" class="block text-white/60 hover:text-white text-sm transition-colors">Group Trips</a></div>
+            <div class="space-y-3"><h4 class="text-white text-xs font-semibold uppercase tracking-wide mb-2">Visit</h4><p class="text-white/60 text-sm">Near Dhanaulti Temple,<br>Laxman Jhula, Rishikesh 249302</p><a href="tel:+911234567890" class="block text-white/60 hover:text-white text-sm transition-colors">+91 12345 67890</a><a href="https://wa.me/911234567890" target="_blank" class="block text-white/60 hover:text-white text-sm transition-colors">WhatsApp Us</a></div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-white/40 text-xs">&copy; 2026 Little Buddha Cafe. All rights reserved.</p><div class="flex gap-4 text-xs text-white/40"><a href="#" class="hover:text-white/70 transition-colors">Privacy Policy</a><a href="#" class="hover:text-white/70 transition-colors">Terms of Service</a></div></div>
+    </div>
+</footer>
+
+<script>
+    function showSuccessMessage(formId, messageId) { event.preventDefault(); document.getElementById(formId).style.display = 'none'; document.getElementById(messageId).classList.remove('hidden'); return false; }
+    const navbar = document.getElementById('navbar'); const scrollIndicator = document.getElementById('scrollIndicator');
+    function handleNavScroll() { if (window.scrollY > 60) { navbar.classList.add('scrolled'); navbar.classList.remove('at-top'); } else { navbar.classList.remove('scrolled'); navbar.classList.add('at-top'); } if (scrollIndicator) scrollIndicator.style.opacity = window.scrollY > 80 ? '0' : '1'; }
+    window.addEventListener('scroll', handleNavScroll); handleNavScroll();
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn'); const mobileNav = document.getElementById('mobileNav'); const mobileNavClose = document.getElementById('mobileNavClose');
+    function openMobileNav() { mobileNav.classList.remove('hidden'); mobileMenuBtn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; requestAnimationFrame(() => mobileNav.classList.add('nav-open')); mobileNavClose.focus(); }
+    function closeMobileNav() { mobileNav.classList.remove('nav-open'); mobileMenuBtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; window.setTimeout(() => mobileNav.classList.add('hidden'), 350); }
+    mobileMenuBtn.addEventListener('click', openMobileNav); mobileNavClose.addEventListener('click', closeMobileNav);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && mobileNav.classList.contains('nav-open')) closeMobileNav(); });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => link.addEventListener('click', closeMobileNav));
+
+    // ---------------------------------------------------------------
+    // DISH ICONS — a custom line-icon set (not stock photography) used for
+    // every menu item that doesn't have one of Little Buddha's own real
+    // photos. Built this way instead of pulling random photos off the web:
+    // web images are someone else's copyrighted work and can't safely go on
+    // a client's commercial site without a license, and hotlinked URLs can
+    // break at any time. This keeps every item visually distinct, on-brand,
+    // and safe to publish as-is.
+    // ---------------------------------------------------------------
+    const DISH_ICONS = {
+        curry: '<path d="M8 24a16 16 0 0032 0"/><path d="M6 24h36"/><path d="M18 10c-2 3 2 4 0 7M24 8c-2 3 2 4 0 7M30 10c-2 3 2 4 0 7"/>',
+        dosa: '<rect x="6" y="20" width="30" height="10" rx="5"/><path d="M36 25c4-2 6 2 3 4"/>',
+        momo: '<path d="M10 26a14 12 0 0128 0z"/><path d="M24 14v-2M18 15l-1-2M30 15l1-2M14 19l-2-1M34 19l2-1"/>',
+        noodles: '<path d="M8 24a16 14 0 0032 0"/><path d="M14 22c2-3 4 3 6 0s4 3 6 0 4 3 6 0"/><path d="M32 10l6 20M36 8l4 22"/>',
+        mezze: '<circle cx="22" cy="24" r="14"/><circle cx="15" cy="20" r="2"/><circle cx="19" cy="16" r="2"/><circle cx="12" cy="26" r="2"/><path d="M30 20a5 5 0 0110 0"/>',
+        taco: '<path d="M8 30a20 14 0 0132 0z"/><circle cx="20" cy="26" r="1.6"/><circle cx="26" cy="27" r="1.6"/><circle cx="23" cy="23" r="1.6"/>',
+        gnocchi: '<path d="M8 26a16 12 0 0032 0"/><ellipse cx="17" cy="22" rx="3" ry="2.2"/><ellipse cx="24" cy="20" rx="3" ry="2.2"/><ellipse cx="31" cy="22" rx="3" ry="2.2"/>',
+        bruschetta: '<rect x="8" y="14" width="26" height="20" rx="4"/><circle cx="16" cy="22" r="1.8"/><circle cx="22" cy="26" r="1.8"/><circle cx="27" cy="20" r="1.8"/>',
+        salad: '<path d="M8 26a16 12 0 0032 0"/><path d="M16 20c3-4 7-4 8 0M24 18c3-4 7-4 8 0"/>',
+        platter: '<rect x="6" y="14" width="36" height="20" rx="3"/><path d="M18 14v20M30 14v20"/>',
+        soup: '<path d="M8 26a16 12 0 0032 0"/><path d="M22 8v10M20 8h4"/><path d="M32 10c3 4-1 6-1 10"/>',
+        toast: '<path d="M10 32V16l14-8 14 8v16z"/><path d="M10 24h28"/>',
+        burger: '<path d="M8 20a16 6 0 0132 0z"/><path d="M8 24h32"/><path d="M9 28h30"/><path d="M10 32a14 4 0 0028 0z"/>',
+        dessert: '<path d="M10 34L24 10l14 24z"/><path d="M13 28h22"/><circle cx="24" cy="8" r="2"/>',
+        chai: '<path d="M12 20h16v8a8 8 0 01-16 0z"/><path d="M28 22h4a4 4 0 010 8h-4"/><path d="M10 34h20"/><path d="M17 12c-2 2 2 3 0 5M23 12c-2 2 2 3 0 5"/>',
+        coffee: '<path d="M12 18h16v10a8 8 0 01-16 0z"/><path d="M28 20h4a4 4 0 010 8h-4"/><path d="M10 34h20"/><path d="M20 6v8"/>',
+        juice: '<path d="M14 12h20l-3 24H17z"/><path d="M28 8l4 6"/>',
+        smoothie: '<rect x="14" y="14" width="20" height="22" rx="3"/><path d="M14 20h20"/><path d="M26 6l4 10"/>',
+        shake: '<path d="M15 14h18l-2 22H17z"/><path d="M15 14c0-3 18-3 18 0"/><path d="M27 6l3 9"/>',
+        kombucha: '<path d="M20 8h8v6l3 3v19a3 3 0 01-3 3h-8a3 3 0 01-3-3V17l3-3z"/><circle cx="24" cy="24" r="1.4"/><circle cx="26" cy="29" r="1.2"/>',
+        pancake: '<ellipse cx="24" cy="30" rx="14" ry="3"/><ellipse cx="24" cy="24" rx="12" ry="3"/><ellipse cx="24" cy="18" rx="10" ry="3"/><path d="M34 12c2 2-1 4 1 6"/>',
+        fries: '<path d="M14 40V16M20 40V12M26 40V16M32 40V12M38 40V18"/><path d="M10 40h32"/>',
+        papad: '<circle cx="24" cy="24" r="16"/><circle cx="18" cy="18" r="1.2"/><circle cx="30" cy="18" r="1.2"/><circle cx="18" cy="30" r="1.2"/><circle cx="30" cy="30" r="1.2"/><circle cx="24" cy="24" r="1.2"/>',
+        pakoda: '<circle cx="16" cy="28" r="6"/><circle cx="28" cy="30" r="7"/><circle cx="34" cy="20" r="5"/><circle cx="19" cy="17" r="5"/>'
+    };
+    const ICON_TILE_BG = { primary: 'rgba(156,74,60,0.1)', secondary: 'rgba(221,143,42,0.14)', moss: 'rgba(62,110,88,0.12)', sky: 'rgba(76,122,158,0.12)' };
+    const ICON_TILE_FG = { primary: 'var(--color-primary)', secondary: '#8a5f16', moss: 'var(--color-accent-moss)', sky: 'var(--color-accent-sky)' };
+
+    function dishVisual(item, tint) {
+        if (item.img) return `<img src="${item.img}" alt="${item.name}" class="dish-visual-photo">`;
+        const path = DISH_ICONS[item.iconKey] || DISH_ICONS.platter;
+        const bg = ICON_TILE_BG[tint] || ICON_TILE_BG.primary, fg = ICON_TILE_FG[tint] || ICON_TILE_FG.primary;
+        return `<div class="dish-visual-icon" style="--tile-bg:${bg}"><svg viewBox="0 0 48 48" fill="none" stroke="${fg}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${path}</svg></div>`;
+    }
+
+    // ---------------------------------------------------------------
+    // MENU DATA — transcribed from Little Buddha Cafe's physical menu photos.
+    // ⚠ PRICING NOTE: several categories showed two different prices across
+    // the photographed pages. Convention used: where a full second price
+    // list existed for the same items, the higher/"updated" figure was used;
+    // where a dish showed a clear Regular|Large pair, the Regular price is
+    // shown, noted in the description. Please cross-check against the
+    // current physical menu before publishing. Wood-Fired Pizza has no
+    // confirmed price in the source photos ("TBD"); Pasta could not be
+    // confirmed at all and is left out.
+    // `tint` (per category) colours that category's icon tiles; `img` is
+    // used only for the 11 dishes with a real Little Buddha Cafe photo —
+    // every real photo is used exactly once, nowhere else.
+    // ---------------------------------------------------------------
+    const menuData = [
+        { category: "Breakfast", icon: "solar:sunrise-linear", tint: "primary", items: [
+            { name: "Little Buddha Special", price: 310, desc: "Baked beans, jam-butter toast, hummus, lentil sprouts, pineapple juice and coffee.", img: "table-spread.jpg", veg: true, spicy: 0, signature: true, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Continental Breakfast", price: 290, desc: "Jam-butter toast, hummus, lentil sprouts, orange juice, tea or coffee.", iconKey: "toast", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Indian Breakfast", price: 240, desc: "Aloo paratha with veg raita, pickle, tea or coffee.", iconKey: "dosa", veg: true, spicy: 1, cuisine: "Indian", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Israeli Breakfast", price: 280, desc: "Hummus, salad, chilli beans and pitta, tea or coffee.", iconKey: "mezze", veg: true, spicy: 1, cuisine: "Israeli", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Mexican Breakfast", price: 280, desc: "Mexican beans, salad, hummus, lentil sprouts and tortilla, tea or coffee.", iconKey: "taco", veg: true, spicy: 1, cuisine: "Mexican", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Vegan Breakfast", price: 290, desc: "Tofu scramble, sliced avocado, green salad and brown toast, with fresh vegetable juice.", iconKey: "salad", veg: true, spicy: 0, signature: true, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegan", "Vegetarian"], badges: ["Chef's Special"], available: true },
+            { name: "Yogi Breakfast", price: 290, desc: "Toasted brown bread with fruit muesli, soya milk and fresh vegetable juice.", iconKey: "toast", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "American Breakfast", price: 290, desc: "Butter-jam toast, hummus, lentil sprouts, cornflakes and a juice of your choice.", iconKey: "toast", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Set Breakfast", price: 290, desc: "Hash brown potatoes, black mushroom, salad and buttered toast, tea or coffee.", iconKey: "platter", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Porridge, Pancakes & Cereals", icon: "solar:donut-bitten-linear", tint: "secondary", items: [
+            { name: "Plain Porridge", price: 100, desc: "Simple, warm porridge to start the day.", iconKey: "soup", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Banana Porridge", price: 110, desc: "Porridge topped with fresh banana.", iconKey: "soup", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Raisin / Strawberry / Mix Fruit Porridge", price: 130, desc: "Porridge with your choice of topping.", iconKey: "soup", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Plain / Sugar Lemon Pancake", price: 90, desc: "Simple sweet pancake.", iconKey: "pancake", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Honey / Chocolate Banana Pancake", price: 110, desc: "Sweet pancake with honey or chocolate banana.", iconKey: "pancake", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Nutella Pancake", price: 130, desc: "Plain, banana or coconut — pancake loaded with Nutella.", iconKey: "pancake", veg: true, spicy: 0, signature: true, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Salted Pancake", price: 140, desc: "Savoury pancake — black mushroom & yak cheese, tofu scramble & cashew, mixed veg, or broccoli & avocado with goat cheese. Ask your server for today's options.", iconKey: "pancake", veg: true, spicy: 1, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Corn Flakes", price: 90, desc: "Served with hot or cold milk.", iconKey: "soup", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Fruit Muesli", price: 130, desc: "House muesli topped with fresh seasonal fruit.", img: "fruit-muesli-bowl.jpg", veg: true, spicy: 0, signature: true, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Fruit Salad", price: 170, desc: "Fresh seasonal fruit, simply served.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Breakfast", course: "Breakfast", mealTimes: ["Breakfast"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Indian Vegetarian & Dosa", icon: "solar:bowl-linear", tint: "moss", items: [
+            { name: "Aloo Zeera", price: 150, desc: "Potatoes tempered with cumin.", iconKey: "curry", veg: true, spicy: 1, cuisine: "Indian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Plain Palak", price: 160, desc: "Simple, home-style spinach curry.", iconKey: "curry", veg: true, spicy: 0, cuisine: "Indian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Aloo Palak / Aloo Matar / Aloo Gobhi", price: 170, desc: "Potato curry with spinach, peas or cauliflower.", iconKey: "curry", veg: true, spicy: 1, cuisine: "Indian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Dal Fry / Dal Makhani / Chana / Bhindi / Zucchini Masala", price: 190, desc: "Choose your curry — lentils, chickpeas, okra or zucchini.", iconKey: "curry", veg: true, spicy: 1, cuisine: "Indian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Palak Paneer / Matar Paneer / Veg Makhani / Dum Aloo Kashmiri", price: 210, desc: "Cottage cheese and vegetable curries in a light, home-style gravy.", iconKey: "curry", veg: true, spicy: 1, cuisine: "Indian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Paneer Butter Masala / Kadai Paneer / Shahi Paneer / Malai Kofta", price: 230, desc: "Rich, creamy cottage-cheese curries.", iconKey: "curry", veg: true, spicy: 1, signature: true, cuisine: "Indian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Our Special Curry", price: 250, desc: "The house curry — ask your server what's in the pot today.", iconKey: "curry", veg: true, spicy: 1, cuisine: "Indian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: ["Chef's Special"], available: true },
+            { name: "Masala Dosa", price: 70, desc: "Crisp South Indian crepe with a spiced potato filling.", iconKey: "dosa", veg: true, spicy: 1, cuisine: "Indian", course: "Main Course", mealTimes: ["Breakfast", "Lunch"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Cheese Masala / Honey Banana Dosa", price: 120, desc: "Loaded or sweet dosa.", iconKey: "dosa", veg: true, spicy: 0, cuisine: "Indian", course: "Main Course", mealTimes: ["Breakfast", "Lunch"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Onion Tomato Uttapam", price: 80, desc: "Thick, savoury rice pancake topped with onion and tomato.", iconKey: "dosa", veg: true, spicy: 0, cuisine: "Indian", course: "Main Course", mealTimes: ["Breakfast", "Lunch"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Momos, Noodles & Tibetan Food", icon: "solar:chef-hat-linear", tint: "sky", items: [
+            { name: "Veg Momos", price: 70, desc: "Steamed Tibetan dumplings, vegetable filling.", iconKey: "momo", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Veg Cheese / Fried / Cheese Potato Momos", price: 100, desc: "Steamed, fried or cheese-and-potato momos.", iconKey: "momo", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Spinach Mushroom Cheese Momos", price: 120, desc: "Steamed momos filled with spinach, mushroom and cheese.", iconKey: "momo", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Nutella Momos", price: 180, desc: "A sweet twist — momos filled with Nutella.", iconKey: "momo", veg: true, spicy: 0, cuisine: "Tibetan", course: "Desserts", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: ["New"], available: true },
+            { name: "Tibetan Special Momos (10pc)", price: 270, desc: "A full plate of ten mixed-vegetable momos.", iconKey: "momo", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Buddha Veg Tofu Momo", price: 290, desc: "The house-special tofu and vegetable momos.", iconKey: "momo", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: ["Chef's Special"], available: true },
+            { name: "Veg Hakka Noodles", price: 70, desc: "Stir-fried noodles with fresh vegetables.", img: "hakka-noodles.jpg", veg: true, spicy: 1, signature: true, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Buddha Special Noodles", price: 120, desc: "The house special noodle bowl.", iconKey: "noodles", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: ["Chef's Special"], available: true },
+            { name: "Gluten Free Rice Noodles", price: 290, desc: "Rice noodles with broccoli, capsicum, mushroom & garlic (spinach, black mushroom or mixed veg & tofu also available).", iconKey: "noodles", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Gluten Free", "Vegetarian"], badges: [], available: true },
+            { name: "Veg Thukpa", price: 100, desc: "Tibetan noodle soup with vegetables.", iconKey: "soup", veg: true, spicy: 1, cuisine: "Tibetan", course: "Soups", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Veg Fried Rice", price: 100, desc: "Wok-tossed vegetable fried rice.", iconKey: "noodles", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Falafel Laffa", price: 160, desc: "Falafel wrapped in Tibetan-style flatbread.", iconKey: "mezze", veg: true, spicy: 1, cuisine: "Tibetan", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "French Fries", price: 80, desc: "Classic crispy fries.", iconKey: "fries", veg: true, spicy: 0, cuisine: "Tibetan", course: "Snacks", mealTimes: ["Quick Bites", "Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Israeli Food", icon: "solar:cup-hot-linear", tint: "primary", items: [
+            { name: "Hummus / Thina", price: 220, desc: "Classic hummus or tahini dip, served with two pita.", img: "falafel-plate-1.jpg", veg: true, spicy: 0, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Falafel Lafa", price: 230, desc: "Falafel wrapped in fresh lafa bread.", iconKey: "mezze", veg: true, spicy: 1, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Baba Ganoush Lafa", price: 230, desc: "Smoky roasted eggplant dip, wrapped in lafa.", iconKey: "mezze", veg: true, spicy: 0, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Shakshuka Lafa", price: 240, desc: "Spiced tomato and egg, wrapped in lafa.", iconKey: "mezze", veg: true, spicy: 1, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: [], badges: [], available: true },
+            { name: "Paneer Schnitzel Lafa", price: 240, desc: "Crumbed paneer schnitzel, wrapped in lafa.", iconKey: "mezze", veg: true, spicy: 1, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Falafel All", price: 370, desc: "The full plate — falafel with chips, salad, hummus and pita.", img: "falafel-plate-2.jpg", veg: true, spicy: 1, signature: true, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Paneer Schnitzel All", price: 350, desc: "Full plate — paneer schnitzel with chips, salad, hummus and pita.", iconKey: "mezze", veg: true, spicy: 1, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Shakshuka All", price: 370, desc: "Full plate — shakshuka with chips, salad, hummus and pita.", iconKey: "mezze", veg: true, spicy: 1, cuisine: "Israeli", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: [], badges: [], available: true }
+        ]},
+        { category: "Mexican Special", icon: "mdi:taco", tint: "secondary", items: [
+            { name: "Quesadilla", price: 210, desc: "Grilled tortilla with melted cheese and vegetables, served with salad and fries.", img: "quesadilla.jpg", veg: true, spicy: 1, signature: true, cuisine: "Mexican", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Burritos", price: 220, desc: "Rolled tortilla filled with beans, rice and vegetables.", iconKey: "taco", veg: true, spicy: 1, cuisine: "Mexican", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Enchiladas", price: 230, desc: "Baked tortillas in a rich chilli sauce.", iconKey: "taco", veg: true, spicy: 2, cuisine: "Mexican", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Tacos", price: 240, desc: "Soft tacos, Mexican-style.", iconKey: "taco", veg: true, spicy: 1, cuisine: "Mexican", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Chips & Salsa", price: 80, desc: "Tortilla chips with fresh salsa.", iconKey: "fries", veg: true, spicy: 1, cuisine: "Mexican", course: "Snacks", mealTimes: ["Quick Bites", "Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Nachos", price: 340, desc: "Loaded nachos with cheese and salsa.", iconKey: "taco", veg: true, spicy: 1, cuisine: "Mexican", course: "Snacks", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Guacamole", price: 370, desc: "Fresh avocado guacamole, served with chips.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Mexican", course: "Snacks", mealTimes: ["Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Wood-Fired Pizza", icon: "mdi:pizza", tint: "moss", items: [
+            { name: "Little Buddha Special Pizza", price: "TBD", desc: "A generously loaded vegetable pizza, straight from the wood-fired oven.", img: "veggie-pizza.jpg", veg: true, spicy: 0, signature: true, cuisine: "Italian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true }
+        ]},
+        { category: "Gnocchi (Baked in Oven)", icon: "mdi:pasta", tint: "sky", items: [
+            { name: "Gnocchi Al Pomodoro", price: 180, desc: "Oven-baked gnocchi in tomato sauce.", iconKey: "gnocchi", veg: true, spicy: 0, cuisine: "Italian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Gnocchi Ala Besciamele", price: 190, desc: "Oven-baked gnocchi in a creamy béchamel.", iconKey: "gnocchi", veg: true, spicy: 0, cuisine: "Italian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Gnocchi Agli Spinaci", price: 190, desc: "Oven-baked gnocchi with spinach.", iconKey: "gnocchi", veg: true, spicy: 0, cuisine: "Italian", course: "Main Course", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Bruschetta", icon: "solar:bread-linear", tint: "primary", items: [
+            { name: "Garlic Bruschetta", price: 80, desc: "Toasted bread with garlic.", iconKey: "bruschetta", veg: true, spicy: 0, cuisine: "Italian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Tomato Garlic Bruschetta", price: 120, desc: "Toasted bread with tomato and garlic.", iconKey: "bruschetta", veg: true, spicy: 0, cuisine: "Italian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Cheese Bruschetta (Olive / Mushroom / Tomato)", price: 140, desc: "Toasted bread topped with cheese and your choice of olive, mushroom or tomato.", iconKey: "bruschetta", veg: true, spicy: 0, cuisine: "Italian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Mix Veg Cheese Bruschetta", price: 150, desc: "Toasted bread with mixed vegetables and cheese.", iconKey: "bruschetta", veg: true, spicy: 0, cuisine: "Italian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Black Mushroom Cheese Garlic Bruschetta", price: 160, desc: "Toasted bread with black mushroom, cheese and garlic.", iconKey: "bruschetta", veg: true, spicy: 0, cuisine: "Italian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Fresh Salad", icon: "solar:leaf-linear", tint: "secondary", items: [
+            { name: "Buddha Salad", price: 390, desc: "The house signature salad, served with garlic brown bread.", img: "quinoa-bowl.jpg", veg: true, spicy: 0, signature: true, cuisine: "Salads", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: ["Chef's Special"], available: true },
+            { name: "Israeli Salad", price: 260, desc: "Fresh chopped vegetable salad, Israeli-style.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Israeli", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Avocado Salad", price: 390, desc: "Fresh salad with avocado.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Salads", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Grilled Tofu Salad", price: 390, desc: "Fresh salad with grilled tofu.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Salads", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Toasted Veggies Salad", price: 390, desc: "Roasted seasonal vegetables over fresh greens.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Salads", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Beetroot Salad", price: 390, desc: "Fresh beet salad.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Salads", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Green Garden Salad", price: 390, desc: "Fresh mixed garden greens.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Salads", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Chickpea Salad", price: 390, desc: "Fresh chickpea salad.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Salads", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Tomato Mozzarella Basil Salad", price: 220, desc: "Classic caprese-style salad.", iconKey: "salad", veg: true, spicy: 0, cuisine: "Italian", course: "Salads", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Platters", icon: "solar:tray-2-linear", tint: "moss", items: [
+            { name: "Boiled Vegetable Platter", price: 220, desc: "Simple steamed seasonal vegetables.", iconKey: "platter", veg: true, spicy: 0, cuisine: "Salads", course: "Platters", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Tofu Stroganoff / Stir Fry", price: 260, desc: "Tofu, your way — stroganoff or ginger stir-fry.", iconKey: "platter", veg: true, spicy: 1, cuisine: "Salads", course: "Platters", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Yogi Baba Platter", price: 290, desc: "A hearty vegetarian platter.", iconKey: "platter", veg: true, spicy: 0, cuisine: "Salads", course: "Platters", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Buddha Platter", price: 320, desc: "The house signature platter — mixed grilled vegetables, mushroom and fried tofu.", iconKey: "platter", veg: true, spicy: 0, signature: true, cuisine: "Salads", course: "Platters", mealTimes: ["Lunch", "Dinner"], dietary: ["Vegan", "Vegetarian"], badges: ["Chef's Special"], available: true }
+        ]},
+        { category: "Soups & Starters", icon: "solar:pot-linear", tint: "sky", items: [
+            { name: "Fresh Tomato Soup", price: 160, desc: "Classic fresh tomato soup, served with garlic brown bread.", iconKey: "soup", veg: true, spicy: 0, cuisine: "Soups", course: "Soups", mealTimes: ["Lunch", "Dinner", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Soup of the Day", price: 190, desc: "Mushroom, veg noodle, hot & sour, French onion, minestrone, pumpkin, momo or Buddha — ask what's on today.", iconKey: "soup", veg: true, spicy: 1, cuisine: "Soups", course: "Soups", mealTimes: ["Lunch", "Dinner", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Papad (3pc)", price: 60, desc: "Roasted or fried papad.", iconKey: "papad", veg: true, spicy: 0, cuisine: "Indian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Masala Papad (2pc)", price: 180, desc: "Papad topped with fresh onion, tomato and spices.", iconKey: "papad", veg: true, spicy: 1, cuisine: "Indian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Mix Veg / Onion / Tofu Pakoda", price: 260, desc: "Crisp battered fritters.", iconKey: "pakoda", veg: true, spicy: 1, cuisine: "Indian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Paneer Pakoda", price: 290, desc: "Crisp battered cottage-cheese fritters.", iconKey: "pakoda", veg: true, spicy: 1, cuisine: "Indian", course: "Starters", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Toast, Sandwich & Burger", icon: "mdi:baguette", tint: "primary", items: [
+            { name: "Toast (Cheese Tomato Tofu / Garlic / Veg Cheese / Olive)", price: 240, desc: "Grilled toast, several topping options.", iconKey: "toast", veg: true, spicy: 0, cuisine: "Snacks", course: "Snacks", mealTimes: ["Breakfast", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Avocado Toast", price: 340, desc: "Grilled toast topped with fresh avocado.", iconKey: "toast", veg: true, spicy: 0, cuisine: "Snacks", course: "Snacks", mealTimes: ["Breakfast", "Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: ["New"], available: true },
+            { name: "Buddha Sandwich", price: 270, desc: "The house sandwich — a Little Buddha favourite.", iconKey: "toast", veg: true, spicy: 0, signature: true, cuisine: "Snacks", course: "Snacks", mealTimes: ["Lunch", "Quick Bites"], dietary: ["Vegetarian"], badges: ["Chef's Special"], available: true },
+            { name: "Mix Veg / Veg Tofu Burger", price: 220, desc: "Vegetable or tofu patty burger.", iconKey: "burger", veg: true, spicy: 1, cuisine: "Snacks", course: "Snacks", mealTimes: ["Lunch", "Dinner", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Spinach Cheese Mushroom Burger", price: 230, desc: "Spinach, cheese and mushroom patty burger.", iconKey: "burger", veg: true, spicy: 1, cuisine: "Snacks", course: "Snacks", mealTimes: ["Lunch", "Dinner", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Paneer Lentil Sprout Burger", price: 250, desc: "Paneer and lentil-sprout patty burger.", iconKey: "burger", veg: true, spicy: 1, cuisine: "Snacks", course: "Snacks", mealTimes: ["Lunch", "Dinner", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Finger Chips / Mashed / Roasted Potatoes", price: 150, desc: "Potatoes your way — fries, mash or roasted.", iconKey: "fries", veg: true, spicy: 0, cuisine: "Snacks", course: "Snacks", mealTimes: ["Lunch", "Dinner", "Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Desserts", icon: "solar:cake-linear", tint: "secondary", items: [
+            { name: "Buddha Special", price: 370, desc: "Ask your server about today's house dessert.", iconKey: "dessert", veg: true, spicy: 0, signature: true, cuisine: "Desserts", course: "Desserts", mealTimes: ["Evening", "Dinner"], dietary: ["Vegetarian"], badges: ["Chef's Special"], available: true },
+            { name: "Jumbo Chocolate Ball", price: 140, desc: "A generous chocolate-ball dessert (with ice cream, ₹180).", iconKey: "dessert", veg: true, spicy: 0, cuisine: "Desserts", course: "Desserts", mealTimes: ["Evening", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Banoffee Pie", price: 240, desc: "Classic banana-toffee pie (with ice cream, ₹290).", iconKey: "dessert", veg: true, spicy: 0, cuisine: "Desserts", course: "Desserts", mealTimes: ["Evening", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Brownie with Ice Cream", price: 270, desc: "Warm brownie, served with ice cream.", iconKey: "dessert", veg: true, spicy: 0, cuisine: "Desserts", course: "Desserts", mealTimes: ["Evening", "Dinner"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Banana Fritters", price: 290, desc: "Fried banana fritters, drizzled with honey (or Nutella, ₹310).", iconKey: "dessert", veg: true, spicy: 0, cuisine: "Desserts", course: "Desserts", mealTimes: ["Evening", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Ice Cream with Chocolate Syrup", price: 170, desc: "Simple, classic — ice cream with chocolate syrup.", iconKey: "dessert", veg: true, spicy: 0, cuisine: "Desserts", course: "Desserts", mealTimes: ["Evening", "Dinner"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Hot Drinks & Coffee", icon: "solar:cup-hot-linear", tint: "moss", items: [
+            { name: "Chai", price: 40, desc: "Classic Indian spiced tea.", iconKey: "chai", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Evening", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Soya Chai", price: 60, desc: "Chai made with soya milk.", iconKey: "chai", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Lemon / Mint / Masala Tea", price: 40, desc: "Choose your tea.", iconKey: "chai", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Evening", "Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Ginger Lemon Honey / Lemon Mint Honey", price: 60, desc: "Soothing honey-based teas.", iconKey: "chai", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Herbal Tea", price: 50, desc: "Chamomile, tulsi, jasmine or green — a rotating pick.", iconKey: "chai", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Evening"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Yaara Chocolate", price: 80, desc: "Hot milk stirred with Nutella.", iconKey: "chai", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Evening"], dietary: ["Vegetarian"], badges: ["New"], available: true },
+            { name: "Nescafe (Black or Milk)", price: 60, desc: "Classic instant coffee.", iconKey: "coffee", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Soya Nescafe", price: 90, desc: "Instant coffee with soya milk.", iconKey: "coffee", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Filter Coffee", price: 80, desc: "South Indian style filter coffee.", iconKey: "coffee", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Espresso / Americano", price: 90, desc: "For the purists.", iconKey: "coffee", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Breakfast", "Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Cappuccino / Latte / Mocha", price: 100, desc: "Regular ₹100, King size ₹120. Add coconut (₹40) or soya milk (₹30).", iconKey: "coffee", cuisine: "Beverages", veg: true, spicy: 0, signature: true, course: "Beverages", mealTimes: ["Breakfast", "Evening"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true }
+        ]},
+        { category: "Fresh Juices", icon: "solar:glass-water-linear", tint: "sky", items: [
+            { name: "Lemon Juice", price: 70, desc: "Fresh-squeezed lemon. Large also available (₹140).", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Lemon Ice", price: 80, desc: "Iced lemon juice. Large also available (₹160).", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Lemon Nana", price: 90, desc: "Lemon and fresh mint. Large also available (₹190).", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "ABC Juice", price: 90, desc: "Apple, beet and carrot.", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Seasonal Fruit Juice", price: 90, desc: "Apple, carrot, orange, papaya, watermelon, mango or mixed fruit — fresh-pressed to order. Large also available (₹190).", img: "red-juice.jpg", cuisine: "Beverages", veg: true, spicy: 0, signature: true, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Pineapple Juice", price: 100, desc: "Fresh pineapple. Large also available (₹170).", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Strawberry Juice", price: 110, desc: "Fresh strawberry, in season. Large also available (₹210).", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: ["Seasonal"], available: true },
+            { name: "Pomegranate Juice", price: 110, desc: "Fresh pomegranate. Large also available (₹260).", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Green Juice, Kombucha & Smoothies", icon: "mdi:blender", tint: "primary", items: [
+            { name: "Buddha Green Smoothie", price: 230, desc: "The house green smoothie — the one everyone photographs.", img: "green-smoothie.jpg", cuisine: "Beverages", veg: true, spicy: 0, signature: true, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Red Ribbon / Green Grass / Third Green / Happy Buddha", price: 230, desc: "Rotating fresh green blends.", iconKey: "smoothie", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Red Rich", price: 180, desc: "A rich red fruit and veg blend.", iconKey: "smoothie", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "ABC / Ginger Honey Kombucha", price: 210, desc: "House-fermented kombucha.", iconKey: "kombucha", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: ["New"], available: true },
+            { name: "Apple Ginger Honey / Mango Honey / Strawberry Honey Kombucha", price: 230, desc: "Fruit-infused kombucha.", iconKey: "kombucha", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Avocado, Apple & Chia Smoothie", price: 290, desc: "Blended with milk or soya.", iconKey: "smoothie", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Papaya, Apple, Cinnamon, Dates & Honey Smoothie", price: 290, desc: "A warmly spiced fruit smoothie, with soya.", iconKey: "smoothie", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Pineapple, Banana, Peanut Butter & Almond Smoothie", price: 290, desc: "A rich, protein-packed blend, with soya.", iconKey: "smoothie", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true }
+        ]},
+        { category: "Milkshake or Lassi", icon: "solar:cup-linear", tint: "secondary", items: [
+            { name: "Oreo / Chocolate / Mango / Cold Coffee Shake", price: 210, desc: "Classic thick milkshakes.", img: "shakes.jpg", cuisine: "Beverages", veg: true, spicy: 0, signature: true, course: "Beverages", mealTimes: ["Quick Bites", "Evening"], dietary: ["Vegetarian"], badges: ["Bestseller"], available: true },
+            { name: "Avocado / Strawberry Shake", price: 230, desc: "Creamy avocado, or strawberry in season.", iconKey: "shake", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites", "Evening"], dietary: ["Vegetarian"], badges: ["Seasonal"], available: true },
+            { name: "Banana / Papaya / Mixed Fruit Shake", price: 190, desc: "Fresh fruit shakes.", iconKey: "shake", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Matcha Ice", price: 280, desc: "Iced matcha blend.", iconKey: "shake", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegetarian"], badges: ["New"], available: true },
+            { name: "Nutella Banana Shake", price: 260, desc: "Nutella and banana, blended thick.", iconKey: "shake", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites", "Evening"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Sweet or Salted Lassi", price: 150, desc: "Classic yogurt lassi.", iconKey: "shake", cuisine: "Indian", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Lunch", "Quick Bites"], dietary: ["Vegetarian"], badges: [], available: true },
+            { name: "Lemon Soda", price: 150, desc: "Refreshing sweet or salted lemon soda.", iconKey: "juice", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites"], dietary: ["Vegan", "Vegetarian"], badges: [], available: true },
+            { name: "Our Special Shake", price: 290, desc: "Ask your server about today's special shake.", iconKey: "shake", cuisine: "Beverages", veg: true, spicy: 0, course: "Beverages", mealTimes: ["Quick Bites", "Evening"], dietary: ["Vegetarian"], badges: ["Chef's Special"], available: true }
+        ]}
+    ];
+
+    const WHATSAPP_NUMBER = RESTAURANT.whatsapp;
+    function whatsappLink(text) { return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`; }
+    function slug(str) { return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
+    function spiceIcons(level) { if (!level) return ''; return '<span style="color:#9C4A3C" title="Spice level">' + '🌶'.repeat(level) + '</span>'; }
+    function searchTextFor(item) { return [item.name, item.desc, item.cuisine, item.course, ...(item.dietary || [])].join(' ').toLowerCase(); }
+    const filterState = { query: '', mealTime: 'all', cuisine: 'all', course: new Set(), dietary: new Set(), badges: new Set(), spice: new Set() };
+    function uniqueValues(getter) { const set = new Set(); menuData.forEach(cat => cat.items.forEach(item => { const v = getter(item); if (Array.isArray(v)) v.forEach(x => x && set.add(x)); else if (v) set.add(v); })); return Array.from(set); }
+    const allMealTimes = uniqueValues(i => i.mealTimes); const allCuisines = uniqueValues(i => i.cuisine); const allCourses = uniqueValues(i => i.course); const allDietary = uniqueValues(i => i.dietary); const allBadges = uniqueValues(i => i.badges);
+    const spiceLabels = { '0': 'No Spice', '1': 'Mild', '2': 'Medium', '3': 'Hot' };
+    function itemMatchesFilters(item) {
+        if (filterState.mealTime !== 'all' && !(item.mealTimes || []).includes(filterState.mealTime)) return false;
+        if (filterState.cuisine !== 'all' && item.cuisine !== filterState.cuisine) return false;
+        if (filterState.course.size && !filterState.course.has(item.course)) return false;
+        if (filterState.dietary.size && !(item.dietary || []).some(d => filterState.dietary.has(d))) return false;
+        if (filterState.badges.size && !(item.badges || []).some(b => filterState.badges.has(b))) return false;
+        if (filterState.spice.size && !filterState.spice.has(String(item.spicy))) return false;
+        if (filterState.query && !searchTextFor(item).includes(filterState.query)) return false;
+        return true;
+    }
+    function badgePill(label) { const cls = { 'Bestseller': 'badge-bestseller', "Chef's Special": 'badge-chefspecial', 'New': 'badge-new', 'Seasonal': 'badge-seasonal', 'Currently unavailable': 'badge-unavailable' }[label] || 'badge-seasonal'; return `<span class="badge-pill ${cls}">${label}</span>`; }
+
+    function renderItemCard(item, tint) {
+        const priceLabel = `₹${item.price}`;
+        const orderText = `Hi, I'd like to order: ${item.name} (${priceLabel})`;
+        const unavailable = item.available === false;
+        return `
+            <div class="menu-item bg-white rounded-2xl border shadow-sm hover:shadow-md transition-shadow overflow-hidden flex${unavailable ? ' is-unavailable' : ''}" style="border-color: rgba(0,0,0,0.06);">
+                ${dishVisual(item, tint)}
+                <div class="p-4 flex flex-col flex-1">
+                    <div class="flex justify-between items-start gap-2 mb-1">
+                        <h4 class="font-semibold text-sm leading-snug flex items-center gap-1.5">${item.veg ? '<span class="badge-veg" title="Vegetarian"></span>' : ''} ${item.name} ${item.signature ? '<iconify-icon icon="solar:star-bold" width="13" style="color: var(--color-secondary);" title="Cafe Favourite"></iconify-icon>' : ''}</h4>
+                        <span class="font-semibold text-sm whitespace-nowrap">${priceLabel}</span>
+                    </div>
+                    <p class="text-xs leading-relaxed flex-1 mb-1" style="color: var(--color-charcoal-soft);">${item.desc}</p>
+                    <div class="flex flex-wrap items-center gap-1.5 mb-2">${spiceIcons(item.spicy)}${(item.badges || []).map(badgePill).join('')}${unavailable ? badgePill('Currently unavailable') : ''}</div>
+                    <div class="order-actions flex gap-2">
+                        <a href="${whatsappLink(orderText)}" target="_blank" class="flex-1 flex items-center justify-center gap-1.5 text-white text-xs font-medium py-2 rounded-lg transition-colors" style="background: var(--color-accent-moss);"><iconify-icon icon="solar:chat-round-line-bold" width="14"></iconify-icon> WhatsApp</a>
+                        <a href="tel:+${RESTAURANT.phoneHref.replace('+','')}" class="flex items-center justify-center gap-1.5 border text-xs font-medium py-2 px-3 rounded-lg transition-colors" style="border-color: rgba(0,0,0,0.1); color: var(--color-charcoal);"><iconify-icon icon="solar:phone-linear" width="14"></iconify-icon></a>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    const menuContainer = document.getElementById('menuContainer'); const noResults = document.getElementById('noResults');
+    function renderMenu() {
+        menuContainer.innerHTML = ''; let anyVisible = false;
+        menuData.forEach(cat => {
+            const matches = cat.items.filter(itemMatchesFilters);
+            if (!matches.length) return;
+            anyVisible = true;
+            const section = document.createElement('div'); section.className = 'menu-category';
+            section.innerHTML = `<h3 class="font-display text-2xl font-semibold mb-5 flex items-center gap-2"><iconify-icon icon="${cat.icon}" width="22" style="color: var(--color-primary);"></iconify-icon> ${cat.category}</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">${matches.map(i => renderItemCard(i, cat.tint)).join('')}</div>`;
+            menuContainer.appendChild(section);
+        });
+        noResults.classList.toggle('hidden', anyVisible);
+    }
+
+    const signatureGrid = document.getElementById('signatureGrid');
+    const signatureItems = [];
+    menuData.forEach(cat => cat.items.forEach(item => { if (item.signature && item.img) signatureItems.push(item); }));
+    signatureItems.slice(0, 8).forEach(item => {
+        const card = document.createElement('div'); card.className = 'rounded-2xl overflow-hidden hover-zoom group';
+        card.style.background = 'rgba(255,255,255,0.04)'; card.style.border = '1px solid rgba(255,255,255,0.08)';
+        const priceLabel = `₹${item.price}`; const orderText = `Hi, I'd like to order: ${item.name} (${priceLabel})`;
+        card.innerHTML = `<div class="relative h-48 overflow-hidden"><img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover"><span class="absolute top-3 left-3 text-[10px] font-semibold px-2 py-1 rounded-full uppercase tracking-wide" style="background: var(--color-secondary); color: var(--color-charcoal);">Favourite</span></div>
+            <div class="p-4"><div class="flex justify-between items-start mb-1"><h4 class="font-display text-lg font-semibold text-white">${item.name}</h4><span class="text-sm font-semibold" style="color: var(--color-secondary);">${priceLabel}</span></div><p class="text-white/60 text-xs leading-relaxed mb-3 line-clamp-2">${item.desc}</p><a href="${whatsappLink(orderText)}" target="_blank" class="text-xs font-semibold tracking-wide uppercase" style="color: var(--color-secondary);">Order Now →</a></div>`;
+        signatureGrid.appendChild(card);
+    });
+
+    function addChip(container, label, value, cls, group) { const btn = document.createElement('button'); btn.type = 'button'; btn.className = cls; btn.textContent = label; btn.dataset.value = value; if (group) btn.dataset.group = group; container.appendChild(btn); return btn; }
+    const mealTimeTabs = document.getElementById('mealTimeTabs');
+    addChip(mealTimeTabs, 'All', 'all', 'chip active').setAttribute('role', 'tab');
+    allMealTimes.forEach(mt => addChip(mealTimeTabs, mt, mt, 'chip').setAttribute('role', 'tab'));
+    mealTimeTabs.addEventListener('click', (e) => { const btn = e.target.closest('.chip'); if (!btn) return; filterState.mealTime = btn.dataset.value; update(); });
+    const cuisineExplorer = document.getElementById('cuisineExplorer');
+    addChip(cuisineExplorer, 'All Cuisines', 'all', 'chip-outline active');
+    allCuisines.forEach(c => addChip(cuisineExplorer, c, c, 'chip-outline'));
+    cuisineExplorer.addEventListener('click', (e) => { const btn = e.target.closest('.chip-outline'); if (!btn) return; filterState.cuisine = btn.dataset.value; update(); });
+    const filterDrawerBody = document.getElementById('filterDrawerBody');
+    function buildDrawerGroup(title, values, groupKey, labelFn) {
+        if (!values.length) return;
+        const wrap = document.createElement('div'); wrap.innerHTML = `<p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color: var(--color-charcoal-soft);">${title}</p>`;
+        const list = document.createElement('div'); list.className = 'flex flex-wrap gap-2';
+        values.forEach(v => { const btn = addChip(list, labelFn ? labelFn(v) : v, v, 'chip-outline', groupKey); btn.addEventListener('click', () => { const set = filterState[groupKey]; if (set.has(v)) set.delete(v); else set.add(v); update(); }); });
+        wrap.appendChild(list); filterDrawerBody.appendChild(wrap);
+    }
+    buildDrawerGroup('Course', allCourses, 'course'); buildDrawerGroup('Dietary', allDietary, 'dietary'); buildDrawerGroup('Specials', allBadges, 'badges'); buildDrawerGroup('Spice Level', ['0', '1', '2', '3'], 'spice', v => spiceLabels[v]);
+    function syncChipStates() {
+        mealTimeTabs.querySelectorAll('.chip').forEach(b => { const active = b.dataset.value === filterState.mealTime; b.classList.toggle('active', active); b.setAttribute('aria-selected', String(active)); });
+        cuisineExplorer.querySelectorAll('.chip-outline').forEach(b => b.classList.toggle('active', b.dataset.value === filterState.cuisine));
+        filterDrawerBody.querySelectorAll('[data-group]').forEach(b => b.classList.toggle('active', filterState[b.dataset.group].has(b.dataset.value)));
+    }
+    const filterCountEl = document.getElementById('filterCount');
+    function updateFilterCount() { const n = filterState.course.size + filterState.dietary.size + filterState.badges.size + filterState.spice.size; filterCountEl.textContent = n; filterCountEl.classList.toggle('hidden', n === 0); filterCountEl.classList.toggle('flex', n > 0); }
+    const activeFiltersBar = document.getElementById('activeFilters');
+    function updateActiveFilterChips() {
+        const chips = [];
+        if (filterState.mealTime !== 'all') chips.push({ label: filterState.mealTime, clear: () => { filterState.mealTime = 'all'; } });
+        if (filterState.cuisine !== 'all') chips.push({ label: filterState.cuisine, clear: () => { filterState.cuisine = 'all'; } });
+        filterState.course.forEach(v => chips.push({ label: v, clear: () => filterState.course.delete(v) }));
+        filterState.dietary.forEach(v => chips.push({ label: v, clear: () => filterState.dietary.delete(v) }));
+        filterState.badges.forEach(v => chips.push({ label: v, clear: () => filterState.badges.delete(v) }));
+        filterState.spice.forEach(v => chips.push({ label: spiceLabels[v], clear: () => filterState.spice.delete(v) }));
+        if (filterState.query) chips.push({ label: `"${filterState.query}"`, clear: () => { filterState.query = ''; searchInput.value = ''; } });
+        activeFiltersBar.classList.toggle('hidden', chips.length === 0);
+        activeFiltersBar.innerHTML = chips.map((c, i) => `<span class="active-chip">${c.label}<button type="button" data-idx="${i}" aria-label="Remove ${c.label} filter"><iconify-icon icon="solar:close-circle-bold" width="14"></iconify-icon></button></span>`).join('') + (chips.length ? `<button id="clearAllInline" class="text-xs font-semibold underline ml-1" style="color: var(--color-charcoal-soft);">Clear Filters</button>` : '');
+        activeFiltersBar.querySelectorAll('[data-idx]').forEach(btn => btn.addEventListener('click', () => { chips[Number(btn.dataset.idx)].clear(); update(); }));
+        const clearAllBtn = document.getElementById('clearAllInline'); if (clearAllBtn) clearAllBtn.addEventListener('click', clearAllFilters);
+    }
+    function clearAllFilters() { filterState.query = ''; filterState.mealTime = 'all'; filterState.cuisine = 'all'; filterState.course.clear(); filterState.dietary.clear(); filterState.badges.clear(); filterState.spice.clear(); searchInput.value = ''; clearBtn.classList.add('hidden'); update(); }
+    function syncUrlState() {
+        const params = new URLSearchParams();
+        if (filterState.mealTime !== 'all') params.set('meal', slug(filterState.mealTime));
+        if (filterState.cuisine !== 'all') params.set('cuisine', slug(filterState.cuisine));
+        if (filterState.course.size) params.set('course', Array.from(filterState.course).map(slug).join(','));
+        if (filterState.dietary.size) params.set('diet', Array.from(filterState.dietary).map(slug).join(','));
+        if (filterState.badges.size) params.set('special', Array.from(filterState.badges).map(slug).join(','));
+        if (filterState.spice.size) params.set('spice', Array.from(filterState.spice).join(','));
+        if (filterState.query) params.set('q', filterState.query);
+        const qs = params.toString(); history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+    }
+    function initFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const meal = params.get('meal'); if (meal) { const m = allMealTimes.find(v => slug(v) === meal); if (m) filterState.mealTime = m; }
+        const cuisine = params.get('cuisine'); if (cuisine) { const c = allCuisines.find(v => slug(v) === cuisine); if (c) filterState.cuisine = c; }
+        const course = params.get('course'); if (course) course.split(',').forEach(s => { const v = allCourses.find(x => slug(x) === s); if (v) filterState.course.add(v); });
+        const diet = params.get('diet'); if (diet) diet.split(',').forEach(s => { const v = allDietary.find(x => slug(x) === s); if (v) filterState.dietary.add(v); });
+        const special = params.get('special'); if (special) special.split(',').forEach(s => { const v = allBadges.find(x => slug(x) === s); if (v) filterState.badges.add(v); });
+        const spice = params.get('spice'); if (spice) spice.split(',').forEach(s => filterState.spice.add(s));
+        const q = params.get('q'); if (q) { filterState.query = q.toLowerCase(); searchInput.value = q; clearBtn.classList.remove('hidden'); }
+    }
+    function update() { syncChipStates(); updateFilterCount(); renderMenu(); updateActiveFilterChips(); syncUrlState(); }
+    const searchInput = document.getElementById('menuSearch'); const clearBtn = document.getElementById('clearSearch');
+    searchInput.addEventListener('input', () => { filterState.query = searchInput.value.trim().toLowerCase(); clearBtn.classList.toggle('hidden', filterState.query.length === 0); update(); });
+    clearBtn.addEventListener('click', () => { searchInput.value = ''; filterState.query = ''; clearBtn.classList.add('hidden'); update(); });
+    const filterDrawer = document.getElementById('filterDrawer');
+    function openDrawer() { filterDrawer.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    function closeDrawer() { filterDrawer.classList.add('hidden'); document.body.style.overflow = ''; }
+    document.getElementById('openFilters').addEventListener('click', openDrawer);
+    document.getElementById('closeFilters').addEventListener('click', closeDrawer);
+    document.getElementById('filterDrawerBackdrop').addEventListener('click', closeDrawer);
+    document.getElementById('filterApply').addEventListener('click', () => { update(); closeDrawer(); });
+    document.getElementById('filterClearAll').addEventListener('click', () => { filterState.course.clear(); filterState.dietary.clear(); filterState.badges.clear(); filterState.spice.clear(); update(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !filterDrawer.classList.contains('hidden')) closeDrawer(); });
+    initFromUrl(); update();
+
+    const occasions = [ { label: 'Birthday', icon: 'solar:cake-linear' }, { label: 'Farewell Dinner', icon: 'solar:sun-linear' }, { label: 'Group Trip', icon: 'solar:users-group-rounded-linear' }, { label: 'Retreat Group', icon: 'solar:meditation-linear' }, { label: 'Anniversary', icon: 'solar:heart-linear' }, { label: 'Private Celebration', icon: 'solar:confetti-linear' } ];
+    const occasionGrid = document.getElementById('occasionGrid'); const occasionSelect = document.getElementById('occasionSelect');
+    occasions.forEach(o => {
+        const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'flex flex-col items-center justify-center gap-2 py-5 rounded-2xl text-white text-xs font-medium text-center transition-colors'; btn.style.background = 'rgba(255,255,255,0.08)'; btn.style.border = '1px solid rgba(255,255,255,0.14)';
+        btn.innerHTML = `<iconify-icon icon="${o.icon}" width="22"></iconify-icon> ${o.label}`;
+        btn.addEventListener('click', () => { occasionSelect.value = o.label; document.querySelector('#celebrate .max-w-2xl').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+        occasionGrid.appendChild(btn);
+    });
+
+    const faqs = [
+        { q: "Is everything on the menu vegetarian?", a: "Yes — the entire menu is 100% vegetarian, with vegan options clearly marked across most sections." },
+        { q: "Do you accept table reservations?", a: "Yes — we recommend reserving ahead, especially around sunset when the river-view tables fill up fastest." },
+        { q: "Do you host birthday parties or group dinners?", a: "Yes, we regularly host groups and celebrations. Use the event inquiry form above to share your date and group size." },
+        { q: "How do we get there?", a: "We're near Dhanaulti Temple in Laxman Jhula — it's a walk in from the footbridge, so there's no direct vehicle drop-off at the door." },
+        { q: "How many guests can you seat?", a: "Our open-air seating comfortably handles everything from a solo traveller to large group bookings of 50+." },
+        { q: "Do you have vegan options?", a: "Yes — look for the Vegan tag in the Dietary filter on our menu above." },
+        { q: "What's Little Buddha Cafe known for?", a: "The river view, the wood-fired pizza, and a menu that runs from Indian curries to Israeli plates to Tibetan momos." },
+        { q: "What are your hours?", a: "See Before You Visit below — hours can shift seasonally, so it's worth calling ahead if you're making a special trip." }
+    ];
+    const faqList = document.getElementById('faqList');
+    faqs.forEach((item) => {
+        const wrap = document.createElement('div'); wrap.className = 'bg-white rounded-2xl border overflow-hidden'; wrap.style.borderColor = 'rgba(0,0,0,0.06)';
+        wrap.innerHTML = `<button class="faq-toggle w-full flex items-center justify-between text-left px-6 py-4 gap-4"><span class="text-sm font-semibold">${item.q}</span><iconify-icon icon="solar:alt-arrow-down-linear" width="18" class="faq-chevron shrink-0 transition-transform" style="color: var(--color-primary);"></iconify-icon></button><div class="faq-answer hidden px-6 pb-4 text-sm" style="color: var(--color-charcoal-soft);">${item.a}</div>`;
+        faqList.appendChild(wrap);
+    });
+    faqList.addEventListener('click', (e) => {
+        const btn = e.target.closest('.faq-toggle'); if (!btn) return;
+        const wrap = btn.parentElement, answer = wrap.querySelector('.faq-answer'), chevron = wrap.querySelector('.faq-chevron');
+        const isOpen = !answer.classList.contains('hidden'); answer.classList.toggle('hidden'); chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+
+    const lightbox = document.getElementById('lightbox'); const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gallery-item').forEach(btn => btn.addEventListener('click', () => { lightboxImg.src = btn.dataset.full; lightbox.classList.remove('hidden'); lightbox.classList.add('flex'); }));
+    function closeLightbox() { lightbox.classList.add('hidden'); lightbox.classList.remove('flex'); lightboxImg.src=''; }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+    function updateOpenStatus() {
+        const now = new Date(); const day = now.getDay(); const hour = now.getHours() + now.getMinutes() / 60;
+        const [openHour, closeHour] = RESTAURANT.hours[day]; const isOpen = hour >= openHour && hour < closeHour;
+        document.getElementById('heroMicrocopyText').textContent = isOpen ? `Open Today · ${fmt(openHour)} — ${fmt(closeHour)}` : `Closed Now · Opens ${fmt(openHour)}`;
+    }
+    function fmt(h) { const hour = Math.floor(h); const min = Math.round((h - hour) * 60); const period = hour >= 12 ? 'PM' : 'AM'; let h12 = hour % 12; if (h12 === 0) h12 = 12; return `${h12}:${min.toString().padStart(2,'0')} ${period}`; }
+    updateOpenStatus(); setInterval(updateOpenStatus, 60000);
+
+    const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); }); }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
